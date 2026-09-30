@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>BUGHUNTED DURANTED — God's Eye View</title>
+<style>
+:root{--bg:#0b0d0f;--panel:#14181b;--ink:#edf3f5;--muted:#aab4b9;--line:#293137;--cyan:#19d8e8;--cyan2:#0ca9bb;--warm:#e59b62;--code:#101417}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% -10%,#18252a 0,#0b0d0f 42%);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.68}
+main{max-width:1040px;margin:auto;padding:42px 26px 100px}header{padding:34px 0 32px;border-bottom:1px solid var(--line);margin-bottom:40px}.eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);font-weight:800}h1{font-size:clamp(2.35rem,7vw,5rem);line-height:.94;margin:.2em 0 .25em;letter-spacing:-.045em}.subtitle{font-size:1.15rem;color:var(--muted);max-width:820px}h2{font-size:clamp(1.55rem,3vw,2.25rem);line-height:1.12;margin:2.5em 0 .7em;padding-top:1em;border-top:1px solid var(--line)}h3{font-size:1.2rem;margin-top:1.8em}p{margin:1em 0}strong{color:#fff}a{color:#68e8f2}blockquote{margin:1.4em 0;padding:.15em 0 .15em 1.2em;border-left:4px solid var(--cyan);color:#dce5e8}pre{background:var(--code);padding:18px;border:1px solid #263138;border-radius:10px;overflow:auto;line-height:1.48}code{font-family:Consolas,"Liberation Mono",monospace}table{width:100%;border-collapse:collapse;margin:1.4em 0;background:var(--panel);font-size:.96rem}th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}th{background:#1b2226;color:#dffbff}figure{margin:1.8em 0 2.3em}figure img{display:block;width:100%;height:auto;border:1px solid #303a40;border-radius:12px;background:#080a0c;box-shadow:0 12px 38px rgba(0,0,0,.32)}figcaption{color:var(--muted);font-size:.92rem;margin-top:.65em}.note{border:1px solid #24454a;background:linear-gradient(135deg,#101b1e,#12181b);padding:18px 20px;border-radius:12px}.badge{display:inline-block;border:1px solid var(--cyan2);color:#8df4fb;padding:.28em .65em;border-radius:999px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800}.score{font-size:1.5rem;font-weight:900;color:var(--cyan)}footer{border-top:1px solid var(--line);margin-top:4em;padding-top:1.5em;color:var(--muted);font-size:.92rem}.floating{position:fixed;z-index:10;top:18px;right:18px;display:flex;gap:8px}.floating a{background:#10181cdd;border:1px solid #334249;color:#dffcff;text-decoration:none;padding:8px 11px;border-radius:9px;font-size:.78rem;font-weight:800;letter-spacing:.06em;backdrop-filter:blur(8px)}.floating a:hover{border-color:var(--cyan);color:#fff}.sequence{font-weight:800;letter-spacing:.025em}.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}.two figure{margin:0}@media(max-width:700px){main{padding:28px 15px 70px}.two{grid-template-columns:1fr}.floating{position:static;padding:12px 15px 0;justify-content:flex-end}table{display:block;overflow-x:auto;font-size:.9rem}pre{font-size:.84rem}}
+</style>
+</head>
+<body>
+<nav class="floating"><a href="index.html">HOME</a><a href="https://github.com/ShiduLab/BUGHUNTED-Duranted" target="_blank" rel="noopener">REPO</a></nav>
+<main>
+<header>
+  <div class="eyebrow">ShiduLab · BUGHUNTED DURANTED · 30 settembre 2026</div>
+  <h1>God's Eye View</h1>
+  <p class="subtitle"><strong>ViviVediSeziona → installa → osserva → accendi l'occhio.</strong><br>Un piccolo viaggio tecnico dentro Pinokio, GitHub, PowerShell, dipendenze, clone, installazione e finalmente il panorama di Dio: <strong>Piazza Castello, Torino</strong>.</p>
+</header>
+
+<h2>La richiesta era semplice</h2>
+<p>«ViviVediSeziona questo che lo voglio installare.»</p>
+<p>Il progetto era <strong>God's Eye View</strong>, una console 3D per il pianeta Terra. Prima di toccare Install, però, abbiamo fatto quello che facciamo in laboratorio: leggere il repository, guardare requisiti e percorso di installazione, poi <strong>entrare nell'acqua</strong> invece di immaginare com'è.</p>
+<p>Il desiderio era vedere il panorama. La procedura è diventata il panorama.</p>
+
+<h2>Passo 1 — il digiuno PowerShell</h2>
+<p>Su Windows non abbiamo cercato il pacchetto a mano. Abbiamo scaricato Pinokio direttamente da PowerShell:</p>
+<pre><code>Invoke-WebRequest "https://github.com/pinokiocomputer/pinokio/releases/download/v8.2.0/Pinokio.exe" -OutFile "$env:TEMP\Pinokio.exe"</code></pre>
+<p>Prima di eseguirlo: controllo SHA-256.</p>
+<pre><code>(Get-FileHash "$env:TEMP\Pinokio.exe" -Algorithm SHA256).Hash
+3F94D8DC19BD09F966021E01D479C3440BB1D9237F4A4923BCD0D356E04C7246</code></pre>
+<p><strong>PS:</strong> PowerShell. In questa tavola, i digiuni si fanno comunque davanti al terminale. :D</p>
+
+<h2>Passo 2 — Pinokio prende casa</h2>
+<p>Avviato Pinokio, la prima schermata chiedeva la sua home. Abbiamo lasciato:</p>
+<pre><code>C:\pinokio</code></pre>
+<p>È comparso il promemoria sull'exFAT: nessun dramma, percorso locale corretto, <strong>Select</strong>, poi refresh. Pinokio è ripartito con il suo «Welcome.».</p>
+
+<h2>Passo 3 — il buio è più bello</h2>
+<p>Prima di andare a caccia del progetto: <strong>Settings → Dark</strong>. Il bianco, qui, veste male. :D</p>
+
+<h2>Passo 4 — Apps, e appare lui</h2>
+<p>In <strong>Apps</strong> abbiamo cercato <em>God's Eye View</em>. Il risultato corretto era:</p>
+<pre><code>bilawalsidhu/gods-eye-view</code></pre>
+<p>Pagina del progetto, repository collegato, pulsante <strong>Install</strong>. Si apre la strada vera.</p>
+
+<h2>Passo 5 — la carovana delle dipendenze</h2>
+<p>Pinokio ha mostrato <strong>11 checks / 11 updates needed</strong>. Fra le componenti visibili: conda, zip, git, node, bun, cli, uv, py, huggingface, ffmpeg e il resto della toolchain.</p>
+<p>Abbiamo premuto Install e lasciato correre il processo. Prima Miniforge:</p>
+<pre><code>start /wait installer.exe /InstallationType=JustMe /RegisterPython=0 /S /D=C:\pinokio\bin\miniforge</code></pre>
+<p>Poi la corsa dei pacchetti. Schermata nera, colonne di percentuali, <strong>100% di 100%</strong>. Sembrava un vecchio defrag tornato in servizio.</p>
+
+<div class="note"><strong>Schermata di soglia.</strong><br>Pinokio ha completato la preparazione e presenta il pulsante Install per eseguire lo script del repository.</div>
+
+<h2>Passo 6 — il clone</h2>
+<p>Pinokio chiede dove salvare il repository. La cartella proposta:</p>
+<pre><code>gods-eye-view.git</code></pre>
+<p>Download. Clone. Nessuna capriola: lasciamo che Git faccia il suo mestiere.</p>
+
+<h2>Passo 7 — Install</h2>
+<p>Terminato il clone compare la pagina di installazione di God's Eye View, con l'avviso che verrà eseguito lo script di terze parti scaricato da GitHub. <strong>Protection</strong> è rimasto Off durante questa installazione, poi <strong>Install</strong>.</p>
+
+<h2>Passo 8 — l'occhio si apre</h2>
+<p>Ed eccolo.</p>
+<p>Cesium Ion sotto, il globo 3D davanti, pannelli <strong>DATA LAYERS</strong>, <strong>SCENES</strong>, <strong>DISPLAY</strong>, <strong>CCTV</strong>, <strong>CONTEXT</strong>, <strong>LOCATION</strong> e <strong>VISUAL PRESETS</strong>. In basso: <strong>POWER UP · 8 KEYS WAITING</strong>.</p>
+
+<p><strong>Installazione riuscita.</strong> Il server è vivo e l'applicazione è già nel suo ambiente Pinokio.</p>
+
+
+<h2>Poi arriva il punto per cui l'avevamo installato</h2>
+<p>Location: <strong>Piazza Castello, Torino.</strong></p>
+<p>Attivati soltanto:</p>
+<table>
+<thead><tr><th>Layer</th><th>Stato</th><th>Osservazione</th></tr></thead>
+<tbody>
+<tr><td>Traffico auto</td><td><strong>ON</strong></td><td>movimento veicolare visualizzato</td></tr>
+<tr><td>Bike Sharing</td><td><strong>ON</strong></td><td>layer dedicato al servizio</td></tr>
+<tr><td>Telecamere</td><td><strong>ON / enabling</strong></td><td>fallback CCTV + Street View</td></tr>
+<tr><td>Recent Imagery</td><td>OFF</td><td>non necessario per questa prova</td></tr>
+</tbody></table>
+<p>Il sistema mostra dati live o approssimativi secondo il layer e la disponibilità della sorgente. Restano altri strati da accendere: <strong>TomTom, aerei, satelliti</strong> e altre faccenduole.</p>
+
+<div class="note"><strong>Schermata finale.</strong><br>Piazza Castello, Torino: traffico auto, Bike Sharing e telecamere attivi. È il punto di arrivo della prova.</div>
+
+<h2>La dinamica del BUGHUNTED</h2>
+<p>La parte interessante non è stata soltanto arrivare alla schermata finale. È stato <strong>non anticipare gli eventi</strong>.</p>
+<pre class="sequence">REPO
+  ↓
+REQUISITI
+  ↓
+POWER SHELL
+  ↓
+DOWNLOAD
+  ↓
+HASH
+  ↓
+PINOKIO
+  ↓
+TOOLCHAIN
+  ↓
+PACCHETTI
+  ↓
+CLONE
+  ↓
+INSTALL
+  ↓
+RUN
+  ↓
+LOCATION
+  ↓
+DATA LAYERS
+  ↓
+PIAZZA CASTELLO</pre>
+<p>Quando qualcosa accadeva, si reagiva a quello. Non si costruivano scenari prima dell'evento: <strong>passo passo</strong>. Quando il download sembrava fermo, abbiamo guardato il contatore. Quando è comparso il refresh, refresh. Quando Pinokio ha chiesto la cartella, cartella. Quando ha iniziato a installare, mani lontane.</p>
+<p>La schermata dei pacchetti era persino divertente: «la corsa dei pacchetti», con il vecchio <em>Defrog</em> evocato dalle barre di avanzamento.</p>
+
+<h2>Installazione: il voto del laboratorio</h2>
+<div class="note">
+  <div class="badge">BUGHUNTED DURANTED</div>
+  <p class="score">LISCI — Tutto Ok</p>
+  <p><strong>Gasata</strong> = un po' di capriole.<br><strong>ErraElle</strong> = i salti mortali.<br>Questa volta: nessuna delle due.</p>
+</div>
+
+<h2>Osservazione finale</h2>
+<p>Il progetto ha fatto quello che doveva fare: si è installato, è partito, ha mostrato il panorama e ha permesso di attivare strati di dati differenti fino ad arrivare a una vista operativa di <strong>Piazza Castello</strong>.</p>
+<p>Il bello è che il risultato non è rimasto astratto. Dopo il repository, i requisiti, la toolchain e i pacchetti, è comparso un luogo reale.</p>
+<blockquote><strong>Volevo vedere il panorama di Dio.<br>Abbiamo installato l'occhio.<br>Poi siamo andati a vedere Piazza Castello.</strong></blockquote>
+
+<h2>Paperi e sorgenti</h2>
+<p>La cronaca tecnica completa è raccolta anche nel documento impaginato:</p>
+<p><a href="BugHunted_Duranted_Gods_Eye_View_ShiduLab.docx">→ Scarica il Paperi — DOCX</a></p>
+<p>Repository del progetto installato:</p>
+<p><a href="https://github.com/bilawalsidhu/gods-eye-view" target="_blank" rel="noopener">→ bilawalsidhu/gods-eye-view</a></p>
+
+<footer>
+  <p><strong>Questo Paperi è stato forgiato in Shidulab.</strong></p>
+  <p><a href="https://www.ShiduLab.org" target="_blank" rel="noopener">www.ShiduLab.org</a></p>
+  <p><strong>BugHunted Duranted</strong></p>
+  <p><a href="https://github.com/ShiduLab" target="_blank" rel="noopener">https://github.com/ShiduLab</a></p>
+</footer>
+</main>
+</body>
+</html>
