@@ -8,136 +8,140 @@
 <style>
 :root{--bg:#0b0d0f;--panel:#14181b;--ink:#edf3f5;--muted:#aab4b9;--line:#293137;--cyan:#19d8e8;--cyan2:#0ca9bb;--warm:#e59b62;--code:#101417}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% -10%,#18252a 0,#0b0d0f 42%);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.68}
-main{max-width:1040px;margin:auto;padding:42px 26px 100px}header{padding:34px 0 32px;border-bottom:1px solid var(--line);margin-bottom:40px}.eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);font-weight:800}h1{font-size:clamp(2.35rem,7vw,5rem);line-height:.94;margin:.2em 0 .25em;letter-spacing:-.045em}.subtitle{font-size:1.15rem;color:var(--muted);max-width:820px}h2{font-size:clamp(1.55rem,3vw,2.25rem);line-height:1.12;margin:2.5em 0 .7em;padding-top:1em;border-top:1px solid var(--line)}h3{font-size:1.2rem;margin-top:1.8em}p{margin:1em 0}strong{color:#fff}a{color:#68e8f2}blockquote{margin:1.4em 0;padding:.15em 0 .15em 1.2em;border-left:4px solid var(--cyan);color:#dce5e8}pre{background:var(--code);padding:18px;border:1px solid #263138;border-radius:10px;overflow:auto;line-height:1.48}code{font-family:Consolas,"Liberation Mono",monospace}table{width:100%;border-collapse:collapse;margin:1.4em 0;background:var(--panel);font-size:.96rem}th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}th{background:#1b2226;color:#dffbff}figure{margin:1.8em 0 2.3em}figure img{display:block;width:100%;height:auto;border:1px solid #303a40;border-radius:12px;background:#080a0c;box-shadow:0 12px 38px rgba(0,0,0,.32)}figcaption{color:var(--muted);font-size:.92rem;margin-top:.65em}.note{border:1px solid #24454a;background:linear-gradient(135deg,#101b1e,#12181b);padding:18px 20px;border-radius:12px}.badge{display:inline-block;border:1px solid var(--cyan2);color:#8df4fb;padding:.28em .65em;border-radius:999px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800}.score{font-size:1.5rem;font-weight:900;color:var(--cyan)}footer{border-top:1px solid var(--line);margin-top:4em;padding-top:1.5em;color:var(--muted);font-size:.92rem}.floating{position:fixed;z-index:10;top:18px;right:18px;display:flex;gap:8px}.floating a{background:#10181cdd;border:1px solid #334249;color:#dffcff;text-decoration:none;padding:8px 11px;border-radius:9px;font-size:.78rem;font-weight:800;letter-spacing:.06em;backdrop-filter:blur(8px)}.floating a:hover{border-color:var(--cyan);color:#fff}.floating .action{border-color:var(--cyan2);background:#0d2529;color:#8df4fb}.floating .action:hover{background:#12343a;border-color:var(--cyan);color:#fff}.sequence{font-weight:800;letter-spacing:.025em}.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}.two figure{margin:0}@media(max-width:700px){main{padding:28px 15px 70px}.two{grid-template-columns:1fr}.floating{position:static;padding:12px 15px 0;justify-content:flex-end;flex-wrap:wrap}table{display:block;overflow-x:auto;font-size:.9rem}pre{font-size:.84rem}}
+main{max-width:1040px;margin:auto;padding:42px 26px 100px}header{padding:34px 0 32px;border-bottom:1px solid var(--line);margin-bottom:40px}.eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);font-weight:800}h1{font-size:clamp(2.35rem,7vw,5rem);line-height:.94;margin:.2em 0 .25em;letter-spacing:-.045em}.subtitle{font-size:1.15rem;color:var(--muted);max-width:820px}h2{font-size:clamp(1.55rem,3vw,2.25rem);line-height:1.12;margin:2.5em 0 .7em;padding-top:1em;border-top:1px solid var(--line)}h3{font-size:1.2rem;margin-top:1.8em}p{margin:1em 0}strong{color:#fff}a{color:#68e8f2}blockquote{margin:1.4em 0;padding:.15em 0 .15em 1.2em;border-left:4px solid var(--cyan);color:#dce5e8}pre{background:var(--code);padding:18px;border:1px solid #263138;border-radius:10px;overflow:auto;line-height:1.48}code{font-family:Consolas,"Liberation Mono",monospace}table{width:100%;border-collapse:collapse;margin:1.4em 0;background:var(--panel);font-size:.96rem}th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}th{background:#1b2226;color:#dffbff}.note{border:1px solid #24454a;background:linear-gradient(135deg,#101b1e,#12181b);padding:18px 20px;border-radius:12px}.badge{display:inline-block;border:1px solid var(--cyan2);color:#8df4fb;padding:.28em .65em;border-radius:999px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800}.score{font-size:1.5rem;font-weight:900;color:var(--cyan)}footer{border-top:1px solid var(--line);margin-top:4em;padding-top:1.5em;color:var(--muted);font-size:.92rem}.floating{position:fixed;z-index:10;top:18px;right:18px;display:flex;gap:8px}.floating a{background:#10181cdd;border:1px solid #334249;color:#dffcff;text-decoration:none;padding:8px 11px;border-radius:9px;font-size:.78rem;font-weight:800;letter-spacing:.06em;backdrop-filter:blur(8px)}.floating a:hover{border-color:var(--cyan);color:#fff}.floating .action{border-color:var(--cyan2);background:#0d2529;color:#8df4fb}.sequence{font-weight:800;letter-spacing:.025em}@media(max-width:700px){main{padding:28px 15px 70px}.floating{position:static;padding:12px 15px 0;justify-content:flex-end;flex-wrap:wrap}table{display:block;overflow-x:auto;font-size:.9rem}pre{font-size:.84rem}}
 </style>
 </head>
 <body>
-<nav class="floating"><a href="index.html">HOME</a><a class="action" href="https://shidulab.github.io/BUGHUNTED-Duranted/" target="_blank" rel="noopener">ACTION · MATECLAW</a><a href="https://github.com/ShiduLab/BUGHUNTED-Duranted" target="_blank" rel="noopener">REPO</a></nav>
+<nav class="floating"><a href="index.html">HOME</a><a class="action" href="gods-eye-view.html#paperi">EYE · PAPERi</a><a href="https://github.com/ShiduLab/BUGHUNTED-Duranted" target="_blank" rel="noopener">REPO</a></nav>
 <main>
 <header>
-  <div class="eyebrow">ShiduLab · BUGHUNTED DURANTED · 30 settembre 2026</div>
-  <h1>God's Eye View</h1>
-  <p class="subtitle"><strong>ViviVediSeziona → installa → osserva → accendi l'occhio.</strong><br>Un piccolo viaggio tecnico dentro Pinokio, GitHub, PowerShell, dipendenze, clone, installazione e finalmente il panorama di Dio: <strong>Piazza Castello, Torino</strong>.</p>
+<div class="eyebrow">ShiduLab · BUGHUNTED DURANTED · 30 settembre 2026</div>
+<h1>God's Eye View</h1>
+<p class="subtitle"><strong>ViviVediSeziona → installa → osserva → accendi l'occhio.</strong><br>Un viaggio tecnico dentro Pinokio, GitHub, PowerShell, dipendenze, clone, installazione e finalmente il panorama di Dio: <strong>Piazza Castello, Torino</strong>.</p>
 </header>
 
-<h2>La richiesta era semplice</h2>
-<p>«ViviVediSeziona questo che lo voglio installare.»</p>
-<p>Il progetto era <strong>God's Eye View</strong>, una console 3D per il pianeta Terra. Prima di toccare Install, però, abbiamo fatto quello che facciamo in laboratorio: leggere il repository, guardare requisiti e percorso di installazione, poi <strong>entrare nell'acqua</strong> invece di immaginare com'è.</p>
+<h2>0 — La richiesta era semplice</h2>
+<p>Il progetto era <strong>God's Eye View</strong>. Prima di toccare Install, però, abbiamo fatto quello che facciamo in laboratorio: leggere il repository, guardare requisiti e percorso di installazione, poi <strong>entrare nell'acqua</strong> invece di immaginare com'è.</p>
+<blockquote>“ViviVediSeziona questo che lo voglio installare. Vedi bene la parte requisiti e installazione.”<br><strong>— Josta</strong></blockquote>
 <p>Il desiderio era vedere il panorama. La procedura è diventata il panorama.</p>
+<p>La cronaca non è quindi soltanto un tutorial: è il percorso reale, con il lato tecnico e quello artistico-teatrale del laboratorio.</p>
 
-<h2>Passo 1 — il digiuno PowerShell</h2>
-<p>Su Windows non abbiamo cercato il pacchetto a mano. Abbiamo scaricato Pinokio direttamente da PowerShell:</p>
+<h2>1 — Regola di ingaggio: PS e niente “se”</h2>
+<blockquote>“Dammi comandi ps anche per scaricare, non ho voglia di uscire stasera.”<br><strong>— Josta</strong></blockquote>
+<p><strong>PS:</strong> PowerShell. In questa tavola, i digiuni si fanno davanti al terminale. :D</p>
+<p>La guida aveva iniziato a preparare scenari alternativi. Il laboratorio l'ha ristretta: <strong>un passo alla volta</strong>. Si osserva ciò che accade, si reagisce a quello, poi si passa al passo successivo.</p>
+<blockquote>Prima l’Accadendo, poi la risposta.</blockquote>
+
+<h2>2 — ViviVediSeziona: prima di installare, guardare dentro</h2>
+<p>Il repository esaminato è <strong>bilawalsidhu/gods-eye-view</strong>. Abbiamo controllato README, package.json, setup-doctor, configurazione Pinokio, .env.example, sicurezza, benchmark e percorso di avvio.</p>
+<p>La strada manuale dichiarata dal progetto, verificata ma non usata per la prova reale, era:</p>
+<pre><code>git clone https://github.com/bilawalsidhu/gods-eye-view.git
+cd gods-eye-view
+npm ci
+npm run doctor
+npm run dev</code></pre>
+<p>Il server locale, nella via manuale, apre l'app su <code>http://localhost:4173</code>. Nella vivisezione risultavano utili Node.js 24.x dalla 24.14.0 in su, oppure Node 26.x. Le API key non erano prerequisito per il primo avvio: l'app poteva partire keyless e le chiavi servivano ad ampliare le capacità successive.</p>
+
+<h2>3 — PowerShell: il downflood</h2>
 <pre><code>Invoke-WebRequest "https://github.com/pinokiocomputer/pinokio/releases/download/v8.2.0/Pinokio.exe" -OutFile "$env:TEMP\Pinokio.exe"</code></pre>
-<p>Prima di eseguirlo: controllo SHA-256.</p>
+<p>La consegna era: non toccare nulla finché non fosse tornato il prompt.</p>
+<blockquote>“Ctrl + C. :D”<br><strong>— Josta</strong></blockquote>
+<p>Era una finta: la task non era stata killata e il downflood continuava. Anche il bughunter può diventare materiale da bughunting.</p>
+<p>Finito il download, prima di eseguire qualunque cosa:</p>
 <pre><code>(Get-FileHash "$env:TEMP\Pinokio.exe" -Algorithm SHA256).Hash
 3F94D8DC19BD09F966021E01D479C3440BB1D9237F4A4923BCD0D356E04C7246</code></pre>
-<p><strong>PS:</strong> PowerShell. In questa tavola, i digiuni si fanno comunque davanti al terminale. :D</p>
+<p>Hash verificato. Poi:</p>
+<pre><code>Start-Process "$env:TEMP\Pinokio.exe"</code></pre>
 
-<h2>Passo 2 — Pinokio prende casa</h2>
-<p>Avviato Pinokio, la prima schermata chiedeva la sua home. Abbiamo lasciato:</p>
+<h2>4 — La casa di Pinokio</h2>
 <pre><code>C:\pinokio</code></pre>
-<p>È comparso il promemoria sull'exFAT: nessun dramma, percorso locale corretto, <strong>Select</strong>, poi refresh. Pinokio è ripartito con il suo «Welcome.».</p>
+<p>Home confermata, refresh, rientro. Prima deviazione volontaria: tema scuro.</p>
+<blockquote>“Il bianco veste male.”<br><strong>— Josta</strong></blockquote>
 
-<h2>Passo 3 — il buio è più bello</h2>
-<p>Prima di andare a caccia del progetto: <strong>Settings → Dark</strong>. Il bianco, qui, veste male. :D</p>
-
-<h2>Passo 4 — Apps, e appare lui</h2>
-<p>In <strong>Apps</strong> abbiamo cercato <em>God's Eye View</em>. Il risultato corretto era:</p>
+<h2>5 — Apps: appare lui</h2>
+<p>In Explore abbiamo cercato <strong>God's Eye View</strong>, filtrato su Apps e scelto il risultato Featured dell'autore originale:</p>
 <pre><code>bilawalsidhu/gods-eye-view</code></pre>
-<p>Pagina del progetto, repository collegato, pulsante <strong>Install</strong>. Si apre la strada vera.</p>
+<p>Nel feed comparivano già segnalazioni di utenti su WebGL e installazione. Il BugHunted Duranted ci aspettava prima ancora del click.</p>
 
-<h2>Passo 5 — la carovana delle dipendenze</h2>
-<p>Pinokio ha mostrato <strong>11 checks / 11 updates needed</strong>. Fra le componenti visibili: conda, zip, git, node, bun, cli, uv, py, huggingface, ffmpeg e il resto della toolchain.</p>
-<p>Abbiamo premuto Install e lasciato correre il processo. Prima Miniforge:</p>
-<pre><code>start /wait installer.exe /InstallationType=JustMe /RegisterPython=0 /S /D=C:\pinokio\bin\miniforge</code></pre>
-<p>Poi la corsa dei pacchetti. Schermata nera, colonne di percentuali, <strong>100% di 100%</strong>. Sembrava un vecchio defrag tornato in servizio.</p>
+<h2>6 — Gli 11 sacramenti: prima l’officina, poi l’app</h2>
+<p>Dopo <strong>Install latest</strong>, Pinokio non ha ancora toccato God’s Eye View: prima ha predisposto il proprio ambiente condiviso. La schermata mostrava <strong>11 controlli/aggiornamenti</strong>. Tra le voci visibili: conda, zip, git, node, bun, cli, uv, py, huggingface e ffmpeg, oltre alla componente restante della toolchain.</p>
+<p>Un click su Install: Miniforge 26.3.2-3 in <code>C:\pinokio\bin\miniforge</code> con <code>/RegisterPython=0</code>. Python non è stato registrato nel sistema; Pinokio ha mantenuto il proprio ambiente separato.</p>
+<p>Durante la fase sono comparsi, tra gli altri, Node.js 24.18.0, Git, ffmpeg, uv e Python. Node 24.18.0 supera il minimo 24.14.0 individuato nella vivisezione.</p>
+<p>La schermata mostrava il fenomeno in modo quasi comico: il 100% di una serie di pacchetti non significava ancora che l'intera fase fosse finita.</p>
+<blockquote>“Sembra un vecchio Defrog.”</blockquote>
 
-<div class="note"><strong>Schermata di soglia.</strong><br>Pinokio ha completato la preparazione e presenta il pulsante Install per eseguire lo script del repository.</div>
-
-<h2>Passo 6 — il clone</h2>
-<p>Pinokio chiede dove salvare il repository. La cartella proposta:</p>
+<h2>7 — Clone e script di terze parti</h2>
+<p>Completata l'officina, Pinokio ha chiesto dove salvare il repository. Il nome proposto:</p>
 <pre><code>gods-eye-view.git</code></pre>
-<p>Download. Clone. Nessuna capriola: lasciamo che Git faccia il suo mestiere.</p>
+<p>Dentro <code>~/api</code>. Confermato Download: parte il clone.</p>
+<p>Terminato il clone, Pinokio mostra l'avviso che verrà eseguito lo script di terze parti scaricato da GitHub. La <strong>Protection beta</strong> era Off ed è rimasta così. Un ultimo click su Install ha lanciato lo script.</p>
+<p>Dal codice del launcher avevamo già verificato cosa sarebbe successo: <code>npm ci</code> per le dipendenze bloccate, poi il setup doctor. Nessuna magia opaca: il percorso era stato letto prima di essere eseguito.</p>
 
-<h2>Passo 7 — Install</h2>
-<p>Terminato il clone compare la pagina di installazione di God's Eye View, con l'avviso che verrà eseguito lo script di terze parti scaricato da GitHub. <strong>Protection</strong> è rimasto Off durante questa installazione, poi <strong>Install</strong>.</p>
+<h2>8 — Et voilà: l'occhio attivo</h2>
+<p>Alle <strong>23:09 locali</strong> la schermata è cambiata senza errori bloccanti. God’s Eye View era avviato dentro Pinokio, il globo 3D era renderizzato, il server risultava attivo e il pannello mostrava:</p>
+<pre><code>POWER UP · 8 KEYS WAITING</code></pre>
+<p>Le chiavi non erano state configurate: l'occhio si era aperto nudo, come volevamo.</p>
+<blockquote>“Grandi, siamo stati grandi.”<br><strong>— Josta</strong></blockquote>
+<p>Ma quello era soltanto l'occhio acceso. Il motivo per cui lo avevamo installato doveva ancora accadere.</p>
 
-<h2>Passo 8 — l'occhio si apre</h2>
-<p>Ed eccolo.</p>
-<p>Cesium Ion sotto, il globo 3D davanti, pannelli <strong>DATA LAYERS</strong>, <strong>SCENES</strong>, <strong>DISPLAY</strong>, <strong>CCTV</strong>, <strong>CONTEXT</strong>, <strong>LOCATION</strong> e <strong>VISUAL PRESETS</strong>. In basso: <strong>POWER UP · 8 KEYS WAITING</strong>.</p>
-
-<p><strong>Installazione riuscita.</strong> Il server è vivo e l'applicazione è già nel suo ambiente Pinokio.</p>
-
-<h2>Poi arriva il punto per cui l'avevamo installato</h2>
-<p>Location: <strong>Piazza Castello, Torino.</strong></p>
-<p>Attivati soltanto:</p>
+<h2>9 — Dal globo al luogo: Piazza Castello</h2>
+<p>Ed eccoci dove volevamo arrivare.</p>
+<blockquote>“E siamo arrivati dove volevo vedere... Piazza Castello, Torino. Ho attivato solo Traffico auto, traffico Bike Sharing, Telecamere. Tutto in diretta/approssimativa. Posso ancora attivare i TomTom e altre faccenduole sino ad aerei e satelliti :D”<br><strong>— Josta</strong></blockquote>
 <table>
-<thead><tr><th>Layer</th><th>Stato</th><th>Osservazione</th></tr></thead>
+<thead><tr><th>Layer</th><th>Stato nella prova</th><th>Nota</th></tr></thead>
 <tbody>
-<tr><td>Traffico auto</td><td><strong>ON</strong></td><td>movimento veicolare visualizzato</td></tr>
-<tr><td>Bike Sharing</td><td><strong>ON</strong></td><td>layer dedicato al servizio</td></tr>
-<tr><td>Telecamere</td><td><strong>ON / enabling</strong></td><td>fallback CCTV + Street View</td></tr>
-<tr><td>Recent Imagery</td><td>OFF</td><td>non necessario per questa prova</td></tr>
-</tbody></table>
-<p>Il sistema mostra dati live o approssimativi secondo il layer e la disponibilità della sorgente. Restano altri strati da accendere: <strong>TomTom, aerei, satelliti</strong> e altre faccenduole.</p>
+<tr><td>Traffico auto</td><td><strong>ATTIVO</strong></td><td>movimento veicolare visualizzato</td></tr>
+<tr><td>Bike Sharing</td><td><strong>ATTIVO</strong></td><td>layer dedicato al servizio</td></tr>
+<tr><td>Telecamere</td><td><strong>ATTIVO</strong></td><td>sorgenti CCTV disponibili</td></tr>
+<tr><td>TomTom</td><td>non attivato</td><td>ulteriore sorgente possibile</td></tr>
+<tr><td>Aerei / satelliti</td><td>non attivati</td><td>altri strati ancora esplorabili</td></tr>
+</tbody>
+</table>
+<p>La formula “diretta/approssimativa” resta importante: i layer non hanno tutti la stessa natura o la stessa freschezza. Il dato osservato dipende dalla sorgente.</p>
+<blockquote>“Devo dire che fa il suo dovere il bimbo. Bel Progetto.”<br><strong>— Josta</strong></blockquote>
 
-<div class="note"><strong>Schermata finale.</strong><br>Piazza Castello, Torino: traffico auto, Bike Sharing e telecamere attivi. È il punto di arrivo della prova.</div>
+<h2>10 — BugHunted Duranted: che cosa abbiamo osservato davvero</h2>
+<p>Non abbiamo incontrato un bug applicativo durante questa installazione. Il valore del percorso è stato distinguere ciò che sembrava un allarme da ciò che era soltanto una fase.</p>
+<p><strong>System requirements need attention</strong> non era il fallimento di God’s Eye View: era la preparazione dell'officina condivisa di Pinokio. Il 100% delle barre non significava ancora che tutte le fasi fossero finite. Il clone non era l'installazione. L'avviso sullo script di terze parti era un passaggio distinto dal semplice download.</p>
+<p>La parte più utile è stata la trasparenza: download visibili, percentuali, pacchetti nominati, fasi numerate, clone esplicito, avviso prima dello script, server e app separati.</p>
+<p>Anche la guida è stata sottoposta a bughunting: quando tendeva a ramificare in ipotesi preventive, il metodo veniva riportato a una sola azione per volta. L'utente dava il prossimo stato; Scriba dava il prossimo passo.</p>
 
-<h2>La dinamica del BUGHUNTED</h2>
-<p>La parte interessante non è stata soltanto arrivare alla schermata finale. È stato <strong>non anticipare gli eventi</strong>.</p>
-<pre class="sequence">REPO
-  ↓
-REQUISITI
-  ↓
-POWER SHELL
-  ↓
-DOWNLOAD
-  ↓
-HASH
-  ↓
-PINOKIO
-  ↓
-TOOLCHAIN
-  ↓
-PACCHETTI
-  ↓
-CLONE
-  ↓
-INSTALL
-  ↓
-RUN
-  ↓
-LOCATION
-  ↓
-DATA LAYERS
-  ↓
-PIAZZA CASTELLO</pre>
-<p>Quando qualcosa accadeva, si reagiva a quello. Non si costruivano scenari prima dell'evento: <strong>passo passo</strong>. Quando il download sembrava fermo, abbiamo guardato il contatore. Quando è comparso il refresh, refresh. Quando Pinokio ha chiesto la cartella, cartella. Quando ha iniziato a installare, mani lontane.</p>
-<p>La schermata dei pacchetti era persino divertente: «la corsa dei pacchetti», con il vecchio <em>Defrog</em> evocato dalle barre di avanzamento.</p>
+<h2>11 — Il lato artistico-tecnico</h2>
+<p>Il laboratorio non è diventato teatrale dopo la tecnica. Il teatro era già dentro il modo di fare tecnica. <strong>ViviVediSeziona</strong>, <strong>downflood</strong>, <strong>11 sacramenti</strong>, <strong>ippodromo dei pacchetti</strong>, <strong>Defrog</strong>, l'occhio che si apre nudo, il “bimbo” che fa il suo dovere: sono nomi che accompagnano eventi tecnici reali.</p>
+<p>Le battute non sostituiscono i dati. Li tengono a memoria. “Ctrl+C” non modifica il download; “il bianco veste male” non modifica la home; “Defrog” non sostituisce il contatore. Ma tutte e tre fanno parte della cronaca reale del lavoro.</p>
+<blockquote>“Il laboratorio ha corretto anche il laboratorio.”</blockquote>
+<p>La procedura diventa così una scena osservabile: <strong>comando → attesa → schermata → interpretazione → risposta</strong>. Non un tutorial recitato a posteriori, ma una cronaca del fare.</p>
 
-<h2>Installazione: il voto del laboratorio</h2>
-<div class="note">
-  <div class="badge">BUGHUNTED DURANTED</div>
-  <p class="score">LISCI — Tutto Ok</p>
-  <p><strong>Gasata</strong> = un po' di capriole.<br><strong>ErraElle</strong> = i salti mortali.<br>Questa volta: nessuna delle due.</p>
-</div>
+<h2>12 — Voto all’installazione</h2>
+<div class="note"><div class="badge">BUGHUNTED DURANTED</div><p class="score">LISCI — Tutto Ok</p><p><strong>Liscia</strong> = Tutto Ok<br><strong>Gasata</strong> = un po' di capriole<br><strong>ErraElle</strong> = i salti mortali</p></div>
+<p>È stata lunga perché Pinokio doveva costruire la propria officina, non perché abbiamo dovuto fare capriole. Download verificato, toolchain completata, clone riuscito, script eseguito, primo rendering riuscito, poi prova su un luogo reale.</p>
 
-<h2>Osservazione finale</h2>
-<p>Il progetto ha fatto quello che doveva fare: si è installato, è partito, ha mostrato il panorama e ha permesso di attivare strati di dati differenti fino ad arrivare a una vista operativa di <strong>Piazza Castello</strong>.</p>
-<p>Il bello è che il risultato non è rimasto astratto. Dopo il repository, i requisiti, la toolchain e i pacchetti, è comparso un luogo reale.</p>
-<blockquote><strong>Volevo vedere il panorama di Dio.<br>Abbiamo installato l'occhio.<br>Poi siamo andati a vedere Piazza Castello.</strong></blockquote>
+<h2>13 — Traccia tecnica compatta</h2>
+<ol>
+<li>Scaricare Pinokio 8.2.0 con <code>Invoke-WebRequest</code> nel TEMP.</li>
+<li>Verificare SHA-256 dell'installer.</li>
+<li>Avviare <code>Pinokio.exe</code>.</li>
+<li>Impostare la home <code>C:\pinokio</code>.</li>
+<li>Explore → Apps → cercare <em>God’s Eye View</em> → scegliere <code>bilawalsidhu/gods-eye-view</code>.</li>
+<li>Install → Install latest.</li>
+<li>Lasciare completare gli 11 requisiti condivisi di Pinokio.</li>
+<li>Confermare <code>gods-eye-view.git</code> e premere Download.</li>
+<li>Lasciare Protection beta Off e premere Install sullo script di terze parti.</li>
+<li>Attendere il primo avvio: l'app parte anche senza API key.</li>
+<li>Selezionare la location e attivare i layer desiderati; nella prova finale: Traffico auto, Bike Sharing, Telecamere.</li>
+</ol>
 
-<h2>Paperi e sorgenti</h2>
-<p>La cronaca tecnica completa è raccolta anche nel documento impaginato:</p>
-<p><a href="https://github.com/ShiduLab/BUGHUNTED-Duranted/blob/main/gods-eye-view.html" target="_blank" rel="noopener">→ Sorgente HTML della pagina su GitHub</a></p>
-<p>Repository del progetto installato:</p>
-<p><a href="https://github.com/bilawalsidhu/gods-eye-view" target="_blank" rel="noopener">→ bilawalsidhu/gods-eye-view</a></p>
+<h2 id="paperi">14 — Il Paperi</h2>
+<p>Questo non è soltanto il manuale di come si installa God’s Eye View. È la cronaca di <strong>come ci siamo arrivati</strong>: dalla richiesta di vivisezionare il repository alla prima schermata, dal downflood al clone, dai sacramenti all'occhio, dall'occhio al luogo.</p>
+<p>La parte tecnica resta riproducibile. La parte teatrale resta documentazione dell'Accadere. Insieme fanno il Paperi.</p>
+<blockquote><strong>Dal ViviVediSeziona all’occhio attivo.</strong></blockquote>
+<p><strong>Questo Paperi è stato forgiato in Shidulab.</strong></p>
+<p><strong>www.ShiduLab.org</strong><br><strong>BugHunted Duranted</strong><br><strong>https://github.com/ShiduLab</strong></p>
 
 <footer>
-  <p><strong>Questo Paperi è stato forgiato in Shidulab.</strong></p>
-  <p><a href="https://www.ShiduLab.org" target="_blank" rel="noopener">www.ShiduLab.org</a></p>
-  <p><strong>BugHunted Duranted</strong></p>
-  <p><a href="https://github.com/ShiduLab" target="_blank" rel="noopener">https://github.com/ShiduLab</a></p>
+<p>BUGHUNTED DURANTED · ShiduLab · God's Eye View</p>
+<p><a href="https://github.com/bilawalsidhu/gods-eye-view" target="_blank" rel="noopener">Repository del progetto installato</a></p>
+<p>Sessione osservata: 30 settembre 2026 · Windows 10 · Pinokio 8.2.0</p>
 </footer>
 </main>
 </body>
