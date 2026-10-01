@@ -1,31 +1,69 @@
-name: Diagnose Paperi images
+name: Rebuild Paperi images
 
 on:
   push:
-    branches: [main]
+    branches: [paperi-image-repair]
     paths:
       - '.github/workflows/repair-paperi-images.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  diagnose:
+  rebuild:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Inspect suspect image payloads
+
+      - name: Install Pillow
+        run: python -m pip install --quiet pillow
+
+      - name: Rebuild and verify JPEG assets
         run: |
-          for f in assets/01-gods-eye-pinokio-home.webp \
-                   assets/02-gods-eye-app-page.webp \
-                   assets/03-05-installation-sequence.webp \
-                   assets/06-13-eye-exploration-sequence.webp; do
-            echo "===== $f ====="
-            wc -c "$f"
-            file "$f" || true
-            echo "HEX:"
-            xxd -l 64 "$f" || true
-            echo "ASCII HEAD:"
-            head -c 120 "$f" | cat -v || true
-            echo
-          done
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+
+          jobs = [
+              ("01", "assets/01-gods-eye-pinokio-home.jpg", (550, 298)),
+              ("02", "assets/02-gods-eye-app-page.jpg", (550, 298)),
+              ("03", "assets/03-05-installation-sequence.jpg", (550, 305)),
+              ("04", "assets/06-13-eye-exploration-sequence.jpg", (550, 605)),
+          ]
+
+          for tag, dst, expected_size in jobs:
+              data = bytearray()
+              parts = sorted(Path(f".payload-final/{tag}").glob("*.csv"))
+              if not parts:
+                  raise RuntimeError(f"no numeric parts for {tag}")
+              for p in parts:
+                  text = p.read_text().strip()
+                  if text:
+                      data.extend(int(x) for x in text.split(",") if x)
+              out = Path(dst)
+              out.write_bytes(data)
+              with Image.open(out) as im:
+                  im.load()
+                  print(f"{dst}: format={im.format} size={im.size} bytes={len(data)} parts={len(parts)}")
+                  if im.format != "JPEG":
+                      raise RuntimeError(f"{dst}: expected JPEG, got {im.format}")
+                  if im.size != expected_size:
+                      raise RuntimeError(f"{dst}: expected {expected_size}, got {im.size}")
+          PY
+
+      - name: Remove broken and temporary assets
+        run: |
+          rm -f assets/01-gods-eye-pinokio-home.webp
+          rm -f assets/02-gods-eye-app-page.webp
+          rm -f assets/03-05-installation-sequence.webp
+          rm -f assets/06-13-eye-exploration-sequence.webp
+          rm -rf .payload-final .tmp-paperi
+          rm -f .github/workflows/repair-paperi-images.yml
+
+      - name: Commit clean repaired assets
+        run: |
+          git config user.name "ShiduLab Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Replace broken Paperi images with verified JPEGs"
+          git push origin HEAD:paperi-image-repair
