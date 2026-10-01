@@ -1,0 +1,55 @@
+name: Repair Paperi images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/repair-paperi-images.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Pillow
+        run: python -m pip install --quiet pillow
+
+      - name: Verify and convert four Paperi images
+        run: |
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+
+          pairs = [
+              ("assets/01-gods-eye-pinokio-home.webp", "assets/01-gods-eye-pinokio-home.jpg"),
+              ("assets/02-gods-eye-app-page.webp", "assets/02-gods-eye-app-page.jpg"),
+              ("assets/03-05-installation-sequence.webp", "assets/03-05-installation-sequence.jpg"),
+              ("assets/06-13-eye-exploration-sequence.webp", "assets/06-13-eye-exploration-sequence.jpg"),
+          ]
+
+          for src, dst in pairs:
+              p = Path(src)
+              with Image.open(p) as im:
+                  im.load()
+                  print(f"{src}: format={im.format} size={im.size} mode={im.mode}")
+                  rgb = im.convert("RGB")
+                  rgb.save(dst, "JPEG", quality=92, optimize=True, progressive=True)
+                  print(f" -> {dst}: {Path(dst).stat().st_size} bytes")
+          PY
+
+      - name: Commit repaired JPEG assets
+        run: |
+          git config user.name "ShiduLab Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add assets/01-gods-eye-pinokio-home.jpg \
+                  assets/02-gods-eye-app-page.jpg \
+                  assets/03-05-installation-sequence.jpg \
+                  assets/06-13-eye-exploration-sequence.jpg
+          git diff --cached --quiet && exit 0
+          git commit -m "Add verified Paperi JPEG screenshots"
+          git push
