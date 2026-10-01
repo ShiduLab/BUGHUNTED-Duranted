@@ -15,6 +15,17 @@ figure{margin:2em 0 2.6em}figure img{display:block;width:100%;height:auto;border
 #botologo-link{position:fixed;right:18px;bottom:16px;width:120px;height:auto;z-index:9999;display:block;pointer-events:auto}
 #botologo-watermark{display:block;width:120px;height:auto;opacity:.88;pointer-events:auto;filter:drop-shadow(0 2px 5px rgba(0,0,0,.55))}
 </style>
+
+<style id="scene-layout-v2">
+.scene{margin:1.35em 0 2em}
+.shot{width:100%;aspect-ratio:16/9;background-image:var(--scene-sprite);background-size:600% 300%;background-repeat:no-repeat;background-color:#080b0d;border:1px solid #263138;border-radius:12px;box-shadow:0 12px 34px rgba(0,0,0,.28)}
+.scene figcaption{margin-top:.68em;color:var(--muted);font-size:.92rem}
+.scene-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start;margin:1.2em 0 2em}
+.scene-grid .scene{margin:0}
+.appears{font-size:1.18rem;font-weight:900;color:#fff;margin:1.1em 0 .45em}
+.sequence-note{border-left:4px solid var(--cyan);padding:.2em 0 .2em 1em;color:#dce5e8}
+@media(max-width:700px){.scene-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <nav class="floating"><a href="index.html">HOME</a><a class="action" href="gods-eye-view.html#paperi">EYE · PAPERi</a><a href="https://github.com/ShiduLab/BUGHUNTED-Duranted" target="_blank" rel="noopener">REPO</a></nav>
@@ -22,7 +33,7 @@ figure{margin:2em 0 2.6em}figure img{display:block;width:100%;height:auto;border
 <header>
 <div class="eyebrow">ShiduLab · BUGHUNTED DURANTED · 30 settembre 2026</div>
 <h1>God's Eye View</h1>
-<p class="subtitle"><strong>ViviVediSeziona → installa → osserva → Piazza Castello → traccia aereo → Cockpit.</strong><br>La cronaca completa, dal “voglio installarlo” al panorama di Dio e poi dentro una traccia aerea: <strong>PowerShell, Pinokio, Defrag, occhio, città, cielo.</strong></p>
+<p class="subtitle"><strong>Dal “voglio installarlo” al Cockpit.</strong><br>Manuale di installazione, cronaca tecnica e teatro di ShiduLab: PowerShell, Pinokio, Defrag, occhio, Piazza Castello, tracce aeree, Cockpit.</p>
 </header>
 
 <section class="alphaomega" aria-label="PanoraMio dall'Alfa all'Omega">
@@ -33,156 +44,154 @@ figure{margin:2em 0 2.6em}figure img{display:block;width:100%;height:auto;border
 </section>
 <p class="byline"><strong>Josta + Scriba&nbsp;&nbsp;/&nbsp;&nbsp;ShiduLab OraTorio</strong></p>
 
-<h2>0 — La richiesta era semplice</h2>
-<p>Il progetto era <strong>God's Eye View</strong>. Prima di toccare Install, però, abbiamo fatto quello che facciamo in laboratorio: leggere il repository, guardare requisiti e percorso di installazione, poi <strong>entrare nell'acqua</strong> invece di immaginare com'è.</p>
+<h2>0 — Prima dell’installazione c’era una richiesta</h2>
+<p>La faccenda nasce da una richiesta concreta, non da un tutorial scritto a posteriori: vedere un progetto che prometteva un “panorama di Dio” e, prima di installarlo, aprirlo abbastanza da capire requisiti, dipendenze, launcher e percorso reale.</p>
 <blockquote>“ViviVediSeziona questo che lo voglio installare. Vedi bene la parte requisiti e installazione.”<br><strong>— Josta</strong></blockquote>
-<p>Il desiderio era vedere il panorama. La procedura è diventata il panorama.</p>
-<p>La cronaca non è quindi soltanto un tutorial: è il percorso reale, con il lato tecnico e quello artistico-teatrale del laboratorio.</p>
+<p>Da qui in poi la regola è semplice: <strong>dove il racconto chiama una schermata, la schermata appare lì.</strong> Niente album fotografico separato dalla storia.</p>
 
 <h2>1 — Regola di ingaggio: PS e niente “se”</h2>
 <blockquote>“Dammi comandi ps anche per scaricare, non ho voglia di uscire stasera.”<br><strong>— Josta</strong></blockquote>
 <p><strong>PS:</strong> PowerShell. In questa tavola, i digiuni si fanno davanti al terminale. :D</p>
-<p>La guida aveva iniziato a preparare scenari alternativi. Il laboratorio l'ha ristretta: <strong>un passo alla volta</strong>. Si osserva ciò che accade, si reagisce a quello, poi si passa al passo successivo.</p>
 <blockquote>Prima l’Accadendo, poi la risposta.</blockquote>
+<p>Una sola azione per volta: stato reale → prossimo passo. Niente foreste preventive.</p>
 
 <h2>2 — ViviVediSeziona: prima di installare, guardare dentro</h2>
-<p>Il repository esaminato è <strong>bilawalsidhu/gods-eye-view</strong>. Abbiamo controllato README, package.json, setup-doctor, configurazione Pinokio, .env.example, sicurezza, benchmark e percorso di avvio.</p>
-<p>La strada manuale dichiarata dal progetto, verificata ma non usata per la prova reale, era:</p>
+<p>Repository esaminato: <strong>bilawalsidhu/gods-eye-view</strong>. Prima del click abbiamo letto README, package.json, setup-doctor, configurazione Pinokio, .env.example, sicurezza, benchmark e percorso di avvio.</p>
 <pre><code>git clone https://github.com/bilawalsidhu/gods-eye-view.git
 cd gods-eye-view
 npm ci
 npm run doctor
 npm run dev</code></pre>
-<p>Il server locale, nella via manuale, apre l'app su <code>http://localhost:4173</code>. Nella vivisezione risultavano utili Node.js 24.x dalla 24.14.0 in su, oppure Node 26.x. Le API key non erano prerequisito per il primo avvio: l'app poteva partire keyless e le chiavi servivano ad ampliare le capacità successive.</p>
+<p>La via manuale avrebbe avviato il server su <code>http://localhost:4173</code>. Per la prova reale scegliamo Pinokio: vogliamo vedere anche l’installatore mentre lavora.</p>
 
 <h2>3 — PowerShell: il downflood</h2>
 <pre><code>Invoke-WebRequest "https://github.com/pinokiocomputer/pinokio/releases/download/v8.2.0/Pinokio.exe" -OutFile "$env:TEMP\Pinokio.exe"</code></pre>
-<p>La consegna era: non toccare nulla finché non fosse tornato il prompt.</p>
+<p>Il downflood corre. I primi scatti parziali restano fuori dalla pagina: tagliavano la scena. Teniamo la schermata intera del ritorno del prompt.</p>
 <blockquote>“Ctrl + C. :D”<br><strong>— Josta</strong></blockquote>
-<p>Era una finta: la task non era stata killata e il downflood continuava. Anche il bughunter può diventare materiale da bughunting.</p>
-<p>Finito il download, prima di eseguire qualunque cosa:</p>
+<p>Finta. Il processo continua. Quando torna davvero il prompt:</p>
+<figure class="scene"><div class="shot" data-i="0" role="img" aria-label="PowerShell dopo il download completo di Pinokio"></div><figcaption><strong>Il prompt è tornato.</strong> Downflood concluso, task viva fino alla fine.</figcaption></figure>
+<p>Prima di eseguire qualunque cosa, SHA-256:</p>
 <pre><code>(Get-FileHash "$env:TEMP\Pinokio.exe" -Algorithm SHA256).Hash
 3F94D8DC19BD09F966021E01D479C3440BB1D9237F4A4923BCD0D356E04C7246</code></pre>
 <p>Hash verificato. Poi:</p>
 <pre><code>Start-Process "$env:TEMP\Pinokio.exe"</code></pre>
 
-<figure><img data-b64="./assets/01-traccia-downflood.b64.txt" alt="Traccia completa del download di Pinokio in PowerShell: partenza, avanzamento e prompt tornato" loading="eager" decoding="async"><figcaption><strong>Traccia 1 — Il downflood completo.</strong> Parte, macina byte, torna il prompt. In mezzo il finto “Ctrl + C. :D”.</figcaption></figure>
-
-<h2>4 — La casa di Pinokio</h2>
+<h2>4 — La casa di Pinokio — e il bianco veste male</h2>
+<p>Pinokio 8.2.0 chiede la propria home. Rimane:</p>
 <pre><code>C:\pinokio</code></pre>
-<p>Home confermata, refresh, rientro. Nel mezzo compare anche il promemoria exFAT: controllo del filesystem, poi Select. Prima deviazione volontaria: tema scuro.</p>
+<p>Prima il controllo del filesystem:</p>
+<figure class="scene"><div class="shot" data-i="2" role="img" aria-label="Promemoria exFAT di Pinokio"></div><figcaption>Il promemoria exFAT: controllare il percorso; nel nostro caso si conferma <strong>Select</strong>.</figcaption></figure>
 <blockquote>“Il bianco veste male.”<br><strong>— Josta</strong></blockquote>
-<figure><img data-b64="./assets/02-traccia-pinokio-app.b64.txt" alt="Traccia Pinokio dalla home alla ricerca di God's Eye View e alla scelta Install latest" loading="lazy" decoding="async"><figcaption><strong>Traccia 2 — Pinokio prende forma.</strong> Home, promemoria exFAT, tema scuro, ricerca dell'app, pagina dell'autore originale, storie degli altri e Install latest.</figcaption></figure>
+<p>Qui le due scene vanno viste insieme, perché la battuta è precisamente il passaggio visivo:</p>
+<div class="scene-grid">
+<figure class="scene"><div class="shot" data-i="1" role="img" aria-label="Pinokio in tema chiaro"></div><figcaption><strong>Prima.</strong> Pinokio in bianco.</figcaption></figure>
+<figure class="scene"><div class="shot" data-i="3" role="img" aria-label="Pinokio in tema scuro"></div><figcaption><strong>Dopo.</strong> Pinokio in scuro. Ora sì.</figcaption></figure>
+</div>
 
-<h2>5 — Apps: appare lui</h2>
-<p>In Explore abbiamo cercato <strong>God's Eye View</strong>, filtrato su Apps e scelto il risultato Featured dell'autore originale:</p>
+<h2>5 — Apps: «Ecco, appare Lui.»</h2>
+<p>Explore → ricerca “God’s Eye View” → risultato Featured dell’autore originale.</p>
+<p class="appears">Ecco, appare Lui.</p>
+<figure class="scene"><div class="shot" data-i="4" role="img" aria-label="Bilawal Sidhu nella pagina di God's Eye View su Pinokio"></div><figcaption><strong>Bilawal Sidhu</strong> nella pagina di God’s Eye View su Pinokio: autore e repository owner verificato.</figcaption></figure>
+<p>Scelto il progetto:</p>
 <pre><code>bilawalsidhu/gods-eye-view</code></pre>
-<p>Nel feed comparivano già segnalazioni di utenti su WebGL e installazione. Il BugHunted Duranted ci aspettava prima ancora del click.</p>
+<p>Nel feed, prima ancora del nostro click, c’erano già storie di altri: WebGL, installazioni che non partivano, sistemi diversi.</p>
+<figure class="scene"><div class="shot" data-i="5" role="img" aria-label="Segnalazioni della community su God’s Eye View"></div><figcaption><strong>Le storie degli altri.</strong> Informazione utile, non diagnosi anticipata della nostra macchina.</figcaption></figure>
+<p>Poi <strong>Install → Install latest.</strong></p>
+<figure class="scene"><div class="shot" data-i="6" role="img" aria-label="Install latest in Pinokio"></div><figcaption>Install options: scegliamo la versione raccomandata.</figcaption></figure>
 
-<h2>6 — Gli 11 sacramenti e il Defrag completo</h2>
-<p>Dopo <strong>Install latest</strong>, Pinokio non ha ancora toccato God’s Eye View: prima ha predisposto il proprio ambiente condiviso. La schermata mostrava <strong>11 controlli/aggiornamenti</strong>. Tra le voci visibili: conda, zip, git, node, bun, cli, uv, py, huggingface e ffmpeg, oltre alla componente restante della toolchain.</p>
-<p>Un click su Install: Miniforge 26.3.2-3 in <code>C:\pinokio\bin\miniforge</code> con <code>/RegisterPython=0</code>. Python non è stato registrato nel sistema; Pinokio ha mantenuto il proprio ambiente separato.</p>
-<p>Durante la fase sono comparsi, tra gli altri, Node.js 24.18.0, Git, ffmpeg, uv e Python. Node 24.18.0 supera il minimo 24.14.0 individuato nella vivisezione.</p>
-<p>La schermata mostrava il fenomeno in modo quasi comico: il 100% di una serie di pacchetti non significava ancora che l'intera fase fosse finita. Per questo la traccia non va ridotta a una sola foto: qui il movimento è parte della documentazione.</p>
+<h2>6 — Gli 11 sacramenti — prima l’officina, poi l’app</h2>
+<p>Pinokio non tocca ancora God’s Eye View. Prima prepara l’ambiente condiviso: <strong>11 controlli / aggiornamenti</strong>, tra cui conda, zip, git, node, bun, cli, uv, py, huggingface e ffmpeg.</p>
+<figure class="scene"><div class="shot" data-i="7" role="img" aria-label="Gli 11 requisiti condivisi di Pinokio"></div><figcaption>“System requirements need attention”: 11 checks, 11 updates. Officina da costruire, non crash dell’app.</figcaption></figure>
+<p>Si parte da Miniforge 26.3.2-3 in <code>C:\pinokio\bin\miniforge</code> con <code>/RegisterPython=0</code>. L’ambiente resta isolato. Fra gli strumenti compaiono anche Node.js 24.18.0, Git, ffmpeg, uv e Python.</p>
+
+<h2>7 — Il Defrag completo — l’ippodromo delle dipendenze</h2>
+<p>Il punto non era fotografare “una barra”: era vedere il movimento.</p>
+<div class="scene-grid">
+<figure class="scene"><div class="shot" data-i="8" role="img" aria-label="Avvio installazione conda in Pinokio"></div><figcaption>1/11 — parte conda, metadata in raccolta.</figcaption></figure>
+<figure class="scene"><div class="shot" data-i="9" role="img" aria-label="Prime barre dell’installazione delle dipendenze"></div><figcaption>Prime barre — pochi pacchetti corrono, molti sono ancora a zero.</figcaption></figure>
+</div>
 <blockquote>“Mi sembra di vedere un vecchio Defrog :D”<br><strong>— Josta</strong></blockquote>
+<p>Poi l’ippodromo si riempie:</p>
+<div class="scene-grid">
+<figure class="scene"><div class="shot" data-i="10" role="img" aria-label="Dipendenze in avanzamento con percentuali diverse"></div><figcaption>In corsa — percentuali diverse, pacchetti a velocità diverse.</figcaption></figure>
+<figure class="scene"><div class="shot" data-i="11" role="img" aria-label="Molti pacchetti al 100 percento mentre Pinokio è ancora nella fase 1 di 11"></div><figcaption>Quasi tutto al 100% — ma Pinokio è ancora <strong>1/11 Installing conda</strong>.</figcaption></figure>
+</div>
+<p>È qui che la schermata spiega da sola la differenza tra «pacchetto finito» e «fase finita». Il 100% non basta se l’Accadendo sotto dice ancora 1/11.</p>
 
-<figure><img data-b64="./assets/03-defrag-completo.b64.txt" alt="Defrag completo delle dipendenze Pinokio: 11 requisiti, avvio conda, avanzamento dei pacchetti e quasi tutti al 100 per cento" loading="lazy" decoding="async"><figcaption><strong>Traccia 3 — Il Defrag completo.</strong> 11 requisiti → 1/11 Installing conda → primi pacchetti → ippodromo in corsa → quasi tutti al 100%, mentre Pinokio è ancora nella fase 1/11.</figcaption></figure>
-<h2>7 — Clone e script di terze parti</h2>
-<p>Completata l'officina, Pinokio ha chiesto dove salvare il repository. Il nome proposto:</p>
-<pre><code>gods-eye-view.git</code></pre>
-<p>Dentro <code>~/api</code>. Confermato Download: parte il clone.</p>
-<p>Terminato il clone, Pinokio mostra l'avviso che verrà eseguito lo script di terze parti scaricato da GitHub. La <strong>Protection beta</strong> era Off ed è rimasta così. Un ultimo click su Install ha lanciato lo script.</p>
-<p>Dal codice del launcher avevamo già verificato cosa sarebbe successo: <code>npm ci</code> per le dipendenze bloccate, poi il setup doctor. Nessuna magia opaca: il percorso era stato letto prima di essere eseguito.</p>
+<h2>8 — Clone — quando il progetto entra davvero</h2>
+<p>Finita l’officina, Pinokio chiede dove salvare il repository.</p>
+<figure class="scene"><div class="shot" data-i="12" role="img" aria-label="Salvataggio del clone gods-eye-view.git"></div><figcaption>Save as: <strong>gods-eye-view.git</strong> dentro <code>~/api</code>. Da qui parte il clone.</figcaption></figure>
+<p>Terminato il clone, appare l’avviso sullo script di terze parti. Dove il testo lo nomina, eccolo:</p>
+<figure class="scene"><div class="shot" data-i="13" role="img" aria-label="Avviso per lo script di terze parti di God’s Eye View"></div><figcaption>Script di terze parti: Protection beta Off; un click su Install.</figcaption></figure>
+<p>Dal launcher avevamo già letto il percorso: <code>npm ci</code>, poi setup doctor. Prima leggere, poi eseguire.</p>
 
-<h2>8 — Et voilà: l'occhio attivo</h2>
-<p>Alle <strong>23:09 locali</strong> la schermata è cambiata senza errori bloccanti. God’s Eye View era avviato dentro Pinokio, il globo 3D era renderizzato, il server risultava attivo e il pannello mostrava:</p>
+<h2>9 — Et voilà — l’occhio attivo</h2>
+<p>Alle <strong>23:09 locali</strong> cambia la scena. Server attivo, rendering 3D, pannello:</p>
 <pre><code>POWER UP · 8 KEYS WAITING</code></pre>
-<p>Le chiavi non erano state configurate: l'occhio si era aperto nudo, come volevamo.</p>
+<p>Nessuna API key configurata: l’occhio si apre nudo.</p>
+<figure class="scene"><div class="shot" data-i="14" role="img" aria-label="Primo avvio di God’s Eye View dentro Pinokio"></div><figcaption>Primo avvio riuscito. God’s Eye View è vivo dentro Pinokio.</figcaption></figure>
 <blockquote>“Grandi, siamo stati grandi.”<br><strong>— Josta</strong></blockquote>
-<p>Ma quello era soltanto l'occhio acceso. Il motivo per cui lo avevamo installato doveva ancora accadere.</p>
+<p>Ma accendere l’occhio non era lo scopo. Dovevamo usarlo.</p>
 
-<figure><img data-b64="./assets/04-clone-occhio.b64.txt" alt="Traccia dal clone di gods-eye-view allo script di terze parti e al primo avvio dell'occhio" loading="lazy" decoding="async"><figcaption><strong>Traccia 4 — Il progetto entra e si apre.</strong> Clone → script di terze parti → Protection beta Off → Et voilà: l'occhio attivo.</figcaption></figure>
-<h2>9 — Dal globo al luogo: Piazza Castello</h2>
-<p>Ed eccoci dove volevamo arrivare.</p>
+<h2>10 — Dal globo al luogo — Piazza Castello</h2>
 <blockquote>“E siamo arrivati dove volevo vedere... Piazza Castello, Torino. Ho attivato solo Traffico auto, traffico Bike Sharing, Telecamere. Tutto in diretta/approssimativa. Posso ancora attivare i TomTom e altre faccenduole sino ad aerei e satelliti :D”<br><strong>— Josta</strong></blockquote>
-<table>
-<thead><tr><th>Layer</th><th>Stato nella prova</th><th>Nota</th></tr></thead>
-<tbody>
-<tr><td>Traffico auto</td><td><strong>ATTIVO</strong></td><td>movimento veicolare visualizzato</td></tr>
-<tr><td>Bike Sharing</td><td><strong>ATTIVO</strong></td><td>layer dedicato al servizio</td></tr>
-<tr><td>Telecamere</td><td><strong>ATTIVO</strong></td><td>sorgenti CCTV disponibili</td></tr>
-<tr><td>TomTom</td><td>non attivato</td><td>ulteriore sorgente possibile</td></tr>
-<tr><td>Aerei / satelliti</td><td>non attivati</td><td>altri strati ancora esplorabili</td></tr>
-</tbody>
-</table>
-<p>La formula “diretta/approssimativa” resta importante: i layer non hanno tutti la stessa natura o la stessa freschezza. Il dato osservato dipende dalla sorgente.</p>
+<figure class="scene"><div class="shot" data-i="15" role="img" aria-label="Piazza Castello con Bike Share, telecamere e tracce veicolari"></div><figcaption>Piazza Castello: Bike Share ON, Cameras in attivazione, tracce veicolari sulla scena.</figcaption></figure>
+<p>“Diretta/approssimativa” è la parola giusta: sorgenti diverse, frequenze diverse, precisioni diverse. L’occhio aggrega; non promette onniscienza.</p>
 <blockquote>“Devo dire che fa il suo dovere il bimbo. Bel Progetto.”<br><strong>— Josta</strong></blockquote>
 
-<figure><img data-b64="./assets/05-piazza-castello.b64.txt" alt="God's Eye View su Piazza Castello con Bike Share, telecamere e tracce veicolari" loading="lazy" decoding="async"><figcaption><strong>Traccia 5 — Piazza Castello.</strong> Il PanoraMio diventa luogo: Bike Share ON, Cameras in attivazione e tracce veicolari sulla scena.</figcaption></figure>
+<h2>11 — Dalla piazza al cielo — prima la traccia, poi il Cockpit</h2>
+<p>Prima di entrare nell’aereo, bisogna vederlo comparire fra gli altri.</p>
+<figure class="scene"><div class="shot" data-i="16" role="img" aria-label="Tracce aeree sopra il Nord Italia prima del Cockpit"></div><figcaption><strong>Tracce aeree sopra il Nord Italia.</strong> L’aereo è ancora un contatto dentro la mappa, prima del passaggio in FIRST PERSON.</figcaption></figure>
+<p>La città lascia posto alla rete di contatti aerei. Selezioniamo una traccia. Solo a quel punto l’occhio entra nel velivolo.</p>
+<figure class="scene"><div class="shot" data-i="17" role="img" aria-label="Cockpit di God’s Eye View sul contatto EJU78XV"></div><figcaption><strong>Cockpit.</strong> Il contatto EJU78XV entra in FIRST PERSON; attorno restano le altre tracce e a destra il pannello RADIO.</figcaption></figure>
+<p>La schermata mostra <strong>404 KTS</strong> di ground speed, <strong>38.000 FT</strong> di quota e un piano stimato <strong>SUF · Lamezia Terme → MXP · Milan</strong>. Sono i dati visualizzati dall’app in quella sessione; freschezza e precisione dipendono dalle sorgenti aggregate.</p>
+<p class="sequence-note"><strong>Dal «voglio installarlo» al Cockpit. Ora la sequenza è intera.</strong></p>
 
-<h2>10 — Dalla piazza al cielo: traccia aereo e Cockpit</h2>
-<p>Qui la storia non finisce a Piazza Castello. L'esplorazione sale di quota: dagli strati urbani passiamo alle <strong>tracce aeree</strong>, scegliamo un contatto e l'occhio cambia nuovamente forma. Da mappa stratificata entra in <strong>FIRST PERSON</strong>: Cockpit.</p>
-<figure><img data-b64="./assets/06-cockpit-aereo.b64.txt" alt="God's Eye View in modalità Cockpit su una traccia aerea" loading="lazy" decoding="async"><figcaption><strong>Traccia 6 — Aereo / Cockpit.</strong> Il contatto selezionato entra in prima persona; attorno restano le altre tracce e a destra compare anche il pannello RADIO.</figcaption></figure>
-<p>Nella schermata osservata il contatto selezionato è <code>EJU78XV</code>. Il pannello mostra un volo commerciale, <strong>404 KTS</strong> di ground speed e <strong>38.000 FT</strong> di quota; il piano stimato visualizzato va da <strong>SUF · Lamezia Terme</strong> a <strong>MXP · Milan</strong>. Sono dati mostrati dall'app nella sessione: la loro precisione e freschezza dipendono dalle sorgenti che God’s Eye View sta aggregando.</p>
-<p>Questo chiude davvero la prova: non più soltanto “posso ancora attivare aerei e satelliti”, ma <strong>un aereo selezionato e il Cockpit davanti agli occhi</strong>.</p>
+<h2>12 — BugHunted Duranted — che cosa abbiamo osservato davvero</h2>
+<p>Nessun bug applicativo bloccante durante l’installazione. Il lavoro è stato distinguere stati diversi: requisiti di Pinokio, download dei pacchetti, fine di una fase, clone, esecuzione dello script, server e applicazione.</p>
+<p>La trasparenza aiuta: pacchetti nominati, fasi numerate, clone esplicito, avviso prima dello script, app separata dal server. E anche la guida viene bughuntata quando prova a saltare avanti: si torna sempre all’Accadendo.</p>
 
-<div class="trail"><p><strong>Traccia fotografica completa:</strong> dal downflood alla home, dall'Explore agli 11 sacramenti, dal Defrag al clone, dall'occhio acceso a Piazza Castello, poi traccia aereo e Cockpit.</p></div>
-<h2>11 — BugHunted Duranted: che cosa abbiamo osservato davvero</h2>
-<p>Non abbiamo incontrato un bug applicativo durante questa installazione. Il valore del percorso è stato distinguere ciò che sembrava un allarme da ciò che era soltanto una fase.</p>
-<p><strong>System requirements need attention</strong> non era il fallimento di God’s Eye View: era la preparazione dell'officina condivisa di Pinokio. Il 100% delle barre non significava ancora che tutte le fasi fossero finite. Il clone non era l'installazione. L'avviso sullo script di terze parti era un passaggio distinto dal semplice download.</p>
-<p>La parte più utile è stata la trasparenza: download visibili, percentuali, pacchetti nominati, fasi numerate, clone esplicito, avviso prima dello script, server e app separati.</p>
-<p>Anche la guida è stata sottoposta a bughunting: quando tendeva a ramificare in ipotesi preventive, il metodo veniva riportato a una sola azione per volta. L'utente dava il prossimo stato; Scriba dava il prossimo passo.</p>
+<h2>13 — Il lato artistico-tecnico</h2>
+<p>ViviVediSeziona, downflood, 11 sacramenti, ippodromo, Defrog, l’occhio nudo, il bimbo che fa il suo dovere: il teatro non è stato aggiunto dopo. Era già nel modo in cui la tecnica veniva vissuta e nominata.</p>
+<p>Le battute non sostituiscono i dati; li fanno restare. <strong>Comando → attesa → schermata → interpretazione → risposta → nuova scena.</strong></p>
 
-<h2>12 — Il lato artistico-tecnico</h2>
-<p>Il laboratorio non è diventato teatrale dopo la tecnica. Il teatro era già dentro il modo di fare tecnica. <strong>ViviVediSeziona</strong>, <strong>downflood</strong>, <strong>11 sacramenti</strong>, <strong>ippodromo dei pacchetti</strong>, <strong>Defrog</strong>, l'occhio che si apre nudo, il “bimbo” che fa il suo dovere: sono nomi che accompagnano eventi tecnici reali.</p>
-<p>Le battute non sostituiscono i dati. Li tengono a memoria. “Ctrl+C” non modifica il download; “il bianco veste male” non modifica la home; “Defrog” non sostituisce il contatore. Ma tutte e tre fanno parte della cronaca reale del lavoro.</p>
-<blockquote>“Il laboratorio ha corretto anche il laboratorio.”</blockquote>
-<p>La procedura diventa così una scena osservabile: <strong>comando → attesa → schermata → interpretazione → risposta</strong>. Non un tutorial recitato a posteriori, ma una cronaca del fare.</p>
+<h2>14 — Voto all’installazione</h2>
+<div class="note"><div class="badge">BUGHUNTED DURANTED</div><p class="score">LISCIA — TUTTO OK</p><p><strong>Liscia</strong> — Tutto Ok.<br><strong>Gasata</strong> — un po’ di capriole.<br><strong>ErraElle</strong> — i salti mortali.</p></div>
+<p>È stata lunga perché Pinokio doveva costruire la propria officina, non perché ci abbia costretto ai salti mortali.</p>
 
-<h2>13 — Voto all’installazione</h2>
-<div class="note"><div class="badge">BUGHUNTED DURANTED</div><p class="score">LISCIA — TUTTO OK</p><p><strong>Liscia</strong> = Tutto Ok.<br><strong>Gasata</strong> = un po' di capriole.<br><strong>ErraElle</strong> = i salti mortali.</p></div>
-<p>È stata lunga perché Pinokio doveva costruire la propria officina, non perché abbiamo dovuto fare capriole. Download verificato, toolchain completata, clone riuscito, script eseguito, primo rendering riuscito, poi prova su un luogo reale.</p>
-
-<h2>14 — Traccia tecnica compatta</h2>
+<h2>15 — Traccia tecnica compatta</h2>
 <ol>
 <li>Scaricare Pinokio 8.2.0 con <code>Invoke-WebRequest</code> nel TEMP.</li>
-<li>Verificare SHA-256 dell'installer.</li>
+<li>Verificare SHA-256.</li>
 <li>Avviare <code>Pinokio.exe</code>.</li>
-<li>Impostare la home <code>C:\pinokio</code> e superare il controllo exFAT.</li>
-<li>Explore → Apps → cercare <em>God’s Eye View</em> → scegliere <code>bilawalsidhu/gods-eye-view</code>.</li>
-<li>Install → Install latest.</li>
-<li>Lasciare completare gli 11 requisiti condivisi di Pinokio.</li>
-<li>Seguire il Defrag delle dipendenze fino alla conclusione della fase, senza scambiare i singoli 100% per il completamento globale.</li>
-<li>Confermare <code>gods-eye-view.git</code> e premere Download.</li>
-<li>Lasciare Protection beta Off e premere Install sullo script di terze parti.</li>
-<li>Attendere il primo avvio: l'app parte anche senza API key.</li>
-<li>Andare a Piazza Castello e attivare Traffico auto, Bike Sharing e Telecamere.</li>
-<li>Passare alle tracce aeree, selezionare un contatto e aprire il Cockpit.</li>
+<li>Impostare <code>C:\pinokio</code> e superare il controllo exFAT.</li>
+<li>Tema scuro. :D</li>
+<li>Explore → God’s Eye View → <code>bilawalsidhu/gods-eye-view</code>.</li>
+<li>Install latest.</li>
+<li>Lasciare completare gli 11 requisiti condivisi.</li>
+<li>Seguire il Defrag fino alla fine della fase, non dei singoli pacchetti.</li>
+<li>Clonare <code>gods-eye-view.git</code> in <code>~/api</code>.</li>
+<li>Eseguire lo script di terze parti con Protection beta Off.</li>
+<li>Attendere il primo avvio keyless.</li>
+<li>Piazza Castello: traffico, Bike Share, telecamere.</li>
+<li>Aprire le tracce aeree.</li>
+<li>Selezionare il contatto.</li>
+<li>Entrare nel Cockpit.</li>
 </ol>
 
-<h2 id="paperi">15 — Il Paperi</h2>
-<p>Questo non è soltanto il manuale di come si installa God’s Eye View. È la cronaca di <strong>come ci siamo arrivati</strong>: dalla richiesta di vivisezionare il repository alla prima schermata, dal downflood al clone, dai sacramenti al Defrag, dall'occhio a Piazza Castello e da Piazza Castello alla traccia aerea e al Cockpit.</p>
-<p>La parte tecnica resta riproducibile. La parte teatrale resta documentazione dell'Accadere. Insieme fanno il Paperi.</p>
-<blockquote><strong>Dal ViviVediSeziona al Cockpit.</strong></blockquote>
-<div class="note" style="margin-top:1.5em">
-<p><strong>Perché Paperi.</strong> “Paperi” in sardo è il foglio / i fogli: carta, dunque. E il <em>pezzo di carta</em> richiama immediatamente il Paper con una sua valenza — un titolo, un atto, un'attestazione.</p>
-<p>Qui il foglio è anche il luogo in cui resta la traccia dell’Accadere.</p>
+<h2 id="paperi">16 — Perché Papèri</h2>
+<div class="note">
+<p><strong>Papèri (Pappèri...), in Sardo significa:</strong> i Foglio. Un Foglio, o Tanti Foglio, di carta ovviamente. :D</p>
+<p>E lì si apre l’altro incastro: <strong>Paper</strong>, il Paper scientifico. Poi “il foglio di carta” richiama subito “il pezzo di carta”, la locuzione usata per un documento che ha una certa valenza: un titolo di studio, un atto notarile, un documento che resta.</p>
+<p>Per questo questo è un <strong>Papèri</strong> e anche un <strong>Paperi</strong>: foglio, Paper, traccia dell’Accadere. Non solo scritto: <strong>forgiato</strong>.</p>
 </div>
+
 <footer>
-<p>BUGHUNTED DURANTED · ShiduLab · God's Eye View</p>
-<p><a href="https://github.com/bilawalsidhu/gods-eye-view" target="_blank" rel="noopener">Repository del progetto installato</a></p>
-<p>Sessione osservata: 30 settembre 2026 · Windows 10 · Pinokio 8.2.0</p>
-</footer>
-<div class="note" style="margin-top:2.2em">
 <p><strong>Questo Paperi è stato forgiato in Shidulab.</strong></p>
-<p><a href="https://ShiduLab.org" target="_blank" rel="noopener">ShiduLab.org</a><br><a href="https://github.com/ShiduLab/BUGHUNTED-Duranted" target="_blank" rel="noopener">BugHunted Duranted</a><br><a href="https://github.com/ShiduLab" target="_blank" rel="noopener">https://github.com/ShiduLab</a></p>
-</div>
-<section class="alphaomega" aria-label="PanoraMio dall'Alfa all'Omega">
-<hr>
-<p><strong>Shidu guarda Sidhu.</strong><br><strong>E gli Dei guardan l’Occhio.</strong></p>
-<p class="panoramio"><strong>Il PanoraMio dall’Alfa all’Omega.</strong></p>
-<hr>
-</section>
+<p><a href="https://www.ShiduLab.org" target="_blank" rel="noopener">www.ShiduLab.org</a></p>
+<p><strong>BugHunted Duranted</strong></p>
+<p><a href="https://github.com/ShiduLab" target="_blank" rel="noopener">https://github.com/ShiduLab</a></p>
+</footer>
 </main>
 
 <script>
@@ -203,5 +212,13 @@ npm run dev</code></pre>
 </script>
 
 <a id="botologo-link" href="https://ShiduLab.org" target="_blank" rel="noopener" aria-label="ShiduLab.org"><img id="botologo-watermark" src="data:image/png;base64,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" alt="BotoLogo ShiduLab"></a>
+
+<script id="scene-sprite-v2">
+document.querySelectorAll('.shot[data-i]').forEach(el=>{
+  const i=Number(el.dataset.i), c=i%6, r=Math.floor(i/6);
+  el.style.backgroundPosition=(c*20)+'% '+(r*50)+'%';
+});
+document.documentElement.style.setProperty('--scene-sprite','url("data:image/webp;base64,__SPRITE__")');
+</script>
 </body>
 </html>
