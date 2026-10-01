@@ -8,11 +8,12 @@
 <style>
 :root{--bg:#0b0d0f;--panel:#14181b;--ink:#edf3f5;--muted:#aab4b9;--line:#293137;--cyan:#19d8e8;--cyan2:#0ca9bb;--warm:#e59b62;--code:#101417}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% -10%,#18252a 0,#0b0d0f 42%);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.68}
-main{max-width:1040px;margin:auto;padding:42px 26px 100px}header{padding:34px 0 32px;border-bottom:1px solid var(--line);margin-bottom:40px}.eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);font-weight:800}h1{font-size:clamp(2.35rem,7vw,5rem);line-height:.94;margin:.2em 0 .25em;letter-spacing:-.045em}.subtitle{font-size:1.15rem;color:var(--muted);max-width:820px}h2{font-size:clamp(1.55rem,3vw,2.25rem);line-height:1.12;margin:2.5em 0 .7em;padding-top:1em;border-top:1px solid var(--line)}h3{font-size:1.2rem;margin-top:1.8em}p{margin:1em 0}strong{color:#fff}a{color:#68e8f2}blockquote{margin:1.4em 0;padding:.15em 0 .15em 1.2em;border-left:4px solid var(--cyan);color:#dce5e8}pre{background:var(--code);padding:18px;border:1px solid #263138;border-radius:10px;overflow:auto;line-height:1.48}code{font-family:Consolas,"Liberation Mono",monospace}table{width:100%;border-collapse:collapse;margin:1.4em 0;background:var(--panel);font-size:.96rem}th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}th{background:#1b2226;color:#dffbff}.note{border:1px solid #24454a;background:linear-gradient(135deg,#101b1e,#12181b);padding:18px 20px;border-radius:12px}.badge{display:inline-block;border:1px solid var(--cyan2);color:#8df4fb;padding:.28em .65em;border-radius:999px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800}.score{font-size:1.5rem;font-weight:900;color:var(--cyan)}footer{border-top:1px solid var(--line);margin-top:4em;padding-top:1.5em;color:var(--muted);font-size:.92rem}.floating{position:fixed;z-index:10;top:18px;right:18px;display:flex;gap:8px}.floating a{background:#10181cdd;border:1px solid #334249;color:#dffcff;text-decoration:none;padding:8px 11px;border-radius:9px;font-size:.78rem;font-weight:800;letter-spacing:.06em;backdrop-filter:blur(8px)}.floating a:hover{border-color:var(--cyan);color:#fff}.floating .action{border-color:var(--cyan2);background:#0d2529;color:#8df4fb}.sequence{font-weight:800;letter-spacing:.025em}figure{margin:1.8em 0 2.3em}figure img{display:block;width:100%;height:auto;border:1px solid #303a40;border-radius:12px;background:#080a0c;box-shadow:0 12px 38px rgba(0,0,0,.32)}figcaption{color:var(--muted);font-size:.92rem;margin-top:.65em}@media(max-width:700px){main{padding:28px 15px 70px}.floating{position:static;padding:12px 15px 0;justify-content:flex-end;flex-wrap:wrap}table{display:block;overflow-x:auto;font-size:.9rem}pre{font-size:.84rem}}
+main{max-width:1040px;margin:auto;padding:42px 26px 100px}header{padding:34px 0 32px;border-bottom:1px solid var(--line);margin-bottom:40px}.eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);font-weight:800}h1{font-size:clamp(2.35rem,7vw,5rem);line-height:.94;margin:.2em 0 .25em;letter-spacing:-.045em}.subtitle{font-size:1.15rem;color:var(--muted);max-width:820px}h2{font-size:clamp(1.55rem,3vw,2.25rem);line-height:1.12;margin:2.5em 0 .7em;padding-top:1em;border-top:1px solid var(--line)}h3{font-size:1.2rem;margin-top:1.8em}p{margin:1em 0}strong{color:#fff}a{color:#68e8f2}blockquote{margin:1.4em 0;padding:.15em 0 .15em 1.2em;border-left:4px solid var(--cyan);color:#dce5e8}pre{background:var(--code);padding:18px;border:1px solid #263138;border-radius:10px;overflow:auto;line-height:1.48}code{font-family:Consolas,"Liberation Mono",monospace}table{width:100%;border-collapse:collapse;margin:1.4em 0;background:var(--panel);font-size:.96rem}th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}th{background:#1b2226;color:#dffbff}.note{border:1px solid #24454a;background:linear-gradient(135deg,#101b1e,#12181b);padding:18px 20px;border-radius:12px}.badge{display:inline-block;border:1px solid var(--cyan2);color:#8df4fb;padding:.28em .65em;border-radius:999px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800}.score{font-size:1.5rem;font-weight:900;color:var(--cyan)}footer{border-top:1px solid var(--line);margin-top:4em;padding-top:1.5em;color:var(--muted);font-size:.92rem}.floating{position:fixed;z-index:10;top:18px;right:18px;display:flex;gap:8px}.floating a{background:#10181cdd;border:1px solid #334249;color:#dffcff;text-decoration:none;padding:8px 11px;border-radius:9px;font-size:.78rem;font-weight:800;letter-spacing:.06em;backdrop-filter:blur(8px)}.floating a:hover{border-color:var(--cyan);color:#fff}.floating .action{border-color:var(--cyan2);background:#0d2529;color:#8df4fb}.sequence{font-weight:800;letter-spacing:.025em}@media(max-width:700px){main{padding:28px 15px 70px}.floating{position:static;padding:12px 15px 0;justify-content:flex-end;flex-wrap:wrap}table{display:block;overflow-x:auto;font-size:.9rem}pre{font-size:.84rem}}
+figure{margin:2em 0 2.6em}figure img{display:block;width:100%;height:auto;border:1px solid #263138;border-radius:12px;background:#080b0d;box-shadow:0 12px 34px rgba(0,0,0,.28)}figcaption{margin-top:.7em;color:var(--muted);font-size:.92rem} .trail{margin-top:1.2em;padding-top:1em;border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
-<nav class="floating"><a href="index.html">HOME</a><a class="action" href="https://shidulab.github.io/BUGHUNTED-Duranted/" target="_blank" rel="noopener">ACTION · MATECLAW</a><a href="https://github.com/ShiduLab/BUGHUNTED-Duranted" target="_blank" rel="noopener">REPO</a></nav>
+<nav class="floating"><a href="index.html">HOME</a><a class="action" href="gods-eye-view.html#paperi">EYE · PAPERi</a><a href="https://github.com/ShiduLab/BUGHUNTED-Duranted" target="_blank" rel="noopener">REPO</a></nav>
 <main>
 <header>
 <div class="eyebrow">ShiduLab · BUGHUNTED DURANTED · 30 settembre 2026</div>
@@ -25,8 +26,9 @@ main{max-width:1040px;margin:auto;padding:42px 26px 100px}header{padding:34px 0 
 <blockquote>“ViviVediSeziona questo che lo voglio installare. Vedi bene la parte requisiti e installazione.”<br><strong>— Josta</strong></blockquote>
 <p>Il desiderio era vedere il panorama. La procedura è diventata il panorama.</p>
 <p>La cronaca non è quindi soltanto un tutorial: è il percorso reale, con il lato tecnico e quello artistico-teatrale del laboratorio.</p>
-<figure><img src="assets/01-gods-eye-pinokio-home.webp" alt="Schermata di Pinokio"><figcaption><strong>La scena prima della scena.</strong> L'ambiente di lavoro è parte della cronaca: non un fondale, ma il luogo in cui l'Accadere tecnico prende forma.</figcaption></figure>
 
+
+<figure><img src="./assets/01-gods-eye-pinokio-home.webp" alt="Schermata di Pinokio prima dell'installazione di God's Eye View" loading="eager" decoding="async"><figcaption><strong>La scena prima della scena.</strong> Pinokio è il luogo operativo in cui l'Accadere tecnico prende forma. Non un fondale: l'officina.</figcaption></figure>
 <h2>1 — Regola di ingaggio: PS e niente “se”</h2>
 <blockquote>“Dammi comandi ps anche per scaricare, non ho voglia di uscire stasera.”<br><strong>— Josta</strong></blockquote>
 <p><strong>PS:</strong> PowerShell. In questa tavola, i digiuni si fanno davanti al terminale. :D</p>
@@ -54,8 +56,6 @@ npm run dev</code></pre>
 <p>Hash verificato. Poi:</p>
 <pre><code>Start-Process "$env:TEMP\Pinokio.exe"</code></pre>
 
-<figure><img src="assets/01-gods-eye-pinokio-home.webp" alt="Home di Pinokio durante l'installazione"><figcaption><strong>Screen 1 — Pinokio prende casa.</strong> La schermata reale della piattaforma prima dell'ingresso in Apps.</figcaption></figure>
-
 <h2>4 — La casa di Pinokio</h2>
 <pre><code>C:\pinokio</code></pre>
 <p>Home confermata, refresh, rientro. Prima deviazione volontaria: tema scuro.</p>
@@ -66,15 +66,17 @@ npm run dev</code></pre>
 <pre><code>bilawalsidhu/gods-eye-view</code></pre>
 <p>Nel feed comparivano già segnalazioni di utenti su WebGL e installazione. Il BugHunted Duranted ci aspettava prima ancora del click.</p>
 
-<figure><img src="assets/02-gods-eye-app-page.webp" alt="Pagina di God’s Eye View in Pinokio"><figcaption><strong>Screen 2 — Apps: appare lui.</strong> God’s Eye View individuato nel catalogo di Pinokio.</figcaption></figure>
 
+<figure><img src="./assets/02-gods-eye-app-page.webp" alt="Pagina di God's Eye View nel catalogo Apps di Pinokio" loading="lazy" decoding="async"><figcaption><strong>Screen 2 — Apps: appare lui.</strong> God's Eye View individuato nel catalogo di Pinokio, nel repository dell'autore originale.</figcaption></figure>
 <h2>6 — Gli 11 sacramenti: prima l’officina, poi l’app</h2>
 <p>Dopo <strong>Install latest</strong>, Pinokio non ha ancora toccato God’s Eye View: prima ha predisposto il proprio ambiente condiviso. La schermata mostrava <strong>11 controlli/aggiornamenti</strong>. Tra le voci visibili: conda, zip, git, node, bun, cli, uv, py, huggingface e ffmpeg, oltre alla componente restante della toolchain.</p>
 <p>Un click su Install: Miniforge 26.3.2-3 in <code>C:\pinokio\bin\miniforge</code> con <code>/RegisterPython=0</code>. Python non è stato registrato nel sistema; Pinokio ha mantenuto il proprio ambiente separato.</p>
 <p>Durante la fase sono comparsi, tra gli altri, Node.js 24.18.0, Git, ffmpeg, uv e Python. Node 24.18.0 supera il minimo 24.14.0 individuato nella vivisezione.</p>
-<p>La schermata mostrava il fenomeno in modo quasi comico: il 100% di una serie di pacchetti non significava ancora che l'intera fase fosse finita.</p><figure><img src="assets/03-05-installation-sequence.webp" alt="Sequenza di installazione delle dipendenze di Pinokio"><figcaption><strong>Screen 3–5 — Gli 11 sacramenti.</strong> Conda, pacchetti e completamento: la toolchain si costruisce sotto gli occhi.</figcaption></figure><p></p>
+<p>La schermata mostrava il fenomeno in modo quasi comico: il 100% di una serie di pacchetti non significava ancora che l'intera fase fosse finita.</p>
 <blockquote>“Sembra un vecchio Defrog.”</blockquote>
 
+
+<figure><img src="./assets/03-05-installation-sequence.webp" alt="Sequenza reale dell'installazione delle dipendenze di Pinokio" loading="lazy" decoding="async"><figcaption><strong>Screen 3–5 — Gli 11 sacramenti.</strong> Conda, pacchetti, percentuali e completamento: la toolchain si costruisce sotto gli occhi. Il 100% dei pacchetti non significa ancora che l'intera fase sia conclusa.</figcaption></figure>
 <h2>7 — Clone e script di terze parti</h2>
 <p>Completata l'officina, Pinokio ha chiesto dove salvare il repository. Il nome proposto:</p>
 <pre><code>gods-eye-view.git</code></pre>
@@ -86,10 +88,11 @@ npm run dev</code></pre>
 <p>Alle <strong>23:09 locali</strong> la schermata è cambiata senza errori bloccanti. God’s Eye View era avviato dentro Pinokio, il globo 3D era renderizzato, il server risultava attivo e il pannello mostrava:</p>
 <pre><code>POWER UP · 8 KEYS WAITING</code></pre>
 <p>Le chiavi non erano state configurate: l'occhio si era aperto nudo, come volevamo.</p>
-<figure><img src="assets/06-13-eye-exploration-sequence.webp" alt="Sequenza reale di God’s Eye View: Piazza Castello, viste globali, aerei e cockpit"><figcaption><strong>Screen 6–13 — Dall'occhio al cockpit.</strong> Piazza Castello, layer e viste, radio globale, traccia dell'aereo e infine il cockpit: la sequenza fotografica della prova reale.</figcaption></figure>
 <blockquote>“Grandi, siamo stati grandi.”<br><strong>— Josta</strong></blockquote>
 <p>Ma quello era soltanto l'occhio acceso. Il motivo per cui lo avevamo installato doveva ancora accadere.</p>
 
+
+<figure><img src="./assets/06-13-eye-exploration-sequence.webp" alt="Sequenza reale di God's Eye View: Piazza Castello, viste globali, radio, aerei e cockpit" loading="lazy" decoding="async"><figcaption><strong>Screen 6–13 — Dall'occhio al cockpit.</strong> Piazza Castello, layer attivi, viste globali, radio, traccia dell'aereo e infine il cockpit: la sequenza reale della prova.</figcaption></figure>
 <h2>9 — Dal globo al luogo: Piazza Castello</h2>
 <p>Ed eccoci dove volevamo arrivare.</p>
 <blockquote>“E siamo arrivati dove volevo vedere... Piazza Castello, Torino. Ho attivato solo Traffico auto, traffico Bike Sharing, Telecamere. Tutto in diretta/approssimativa. Posso ancora attivare i TomTom e altre faccenduole sino ad aerei e satelliti :D”<br><strong>— Josta</strong></blockquote>
@@ -106,6 +109,8 @@ npm run dev</code></pre>
 <p>La formula “diretta/approssimativa” resta importante: i layer non hanno tutti la stessa natura o la stessa freschezza. Il dato osservato dipende dalla sorgente.</p>
 <blockquote>“Devo dire che fa il suo dovere il bimbo. Bel Progetto.”<br><strong>— Josta</strong></blockquote>
 
+
+<div class="trail"><p><strong>Traccia fotografica della prova:</strong> dalla prima accensione alla ricerca del luogo, poi oltre: traffico, Bike Sharing, telecamere, radio, aerei e infine cockpit.</p></div>
 <h2>10 — BugHunted Duranted: che cosa abbiamo osservato davvero</h2>
 <p>Non abbiamo incontrato un bug applicativo durante questa installazione. Il valore del percorso è stato distinguere ciò che sembrava un allarme da ciò che era soltanto una fase.</p>
 <p><strong>System requirements need attention</strong> non era il fallimento di God’s Eye View: era la preparazione dell'officina condivisa di Pinokio. Il 100% delle barre non significava ancora che tutte le fasi fossero finite. Il clone non era l'installazione. L'avviso sullo script di terze parti era un passaggio distinto dal semplice download.</p>
@@ -144,6 +149,11 @@ npm run dev</code></pre>
 <p><strong>Questo Paperi è stato forgiato in Shidulab.</strong></p>
 <p><strong>www.ShiduLab.org</strong><br><strong>BugHunted Duranted</strong><br><strong>https://github.com/ShiduLab</strong></p>
 
+
+<div class="note" style="margin-top:1.5em">
+<p><strong>Perché Paperi.</strong> “Paperi” in sardo è il foglio / i fogli: carta, dunque. E il <em>pezzo di carta</em> richiama immediatamente il Paper con una sua valenza — un titolo, un atto, un'attestazione.</p>
+<p>Qui il foglio è anche il luogo in cui resta la traccia dell'Accadere.</p>
+</div>
 <footer>
 <p>BUGHUNTED DURANTED · ShiduLab · God's Eye View</p>
 <p><a href="https://github.com/bilawalsidhu/gods-eye-view" target="_blank" rel="noopener">Repository del progetto installato</a></p>
