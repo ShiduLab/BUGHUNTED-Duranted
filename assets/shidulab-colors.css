@@ -1,0 +1,11 @@
+/* ShiduLab: no white UI text, including headings and hover states. */
+:root{--ink:#bfb29d;--text:#bfb29d;--muted:#a89c89;--cyan:#19d8e8}
+body{color:#bfb29d}
+h1,h2,h4,h5,h6{color:#19d8e8}
+h3{color:#d6a66c}
+h1 strong,h2 strong,h3 strong,h4 strong,h5 strong,h6 strong{color:inherit}
+strong,b{color:#d6a66c}
+a{color:#19d8e8}
+a:hover,a:focus-visible{color:#e59b62}
+.subtitle,footer{color:#a89c89}
+::selection{background:#24454a;color:#d6a66c}
