@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>BUGHUNTED DURANTED — L'ora fantasma del blocco schermo</title>
+<link rel="icon" href="assets/botolo.ico" type="image/x-icon">
+<style>
+:root{--bg:#0f0f0f;--panel:#171717;--ink:#ece9e4;--muted:#b8b2aa;--line:#35312d;--accent:#e17d58;--code:#1d1d1d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.68}
+main{max-width:940px;margin:auto;padding:42px 26px 90px}header{padding:28px 0 30px;border-bottom:1px solid var(--line);margin-bottom:38px}
+.eyebrow{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}h1{font-size:clamp(2.2rem,6vw,4.6rem);line-height:.98;margin:.22em 0 .32em;letter-spacing:-.04em}
+.subtitle{font-size:1.15rem;color:var(--muted);max-width:760px}h2{font-size:clamp(1.55rem,3vw,2.15rem);line-height:1.12;margin:2.4em 0 .7em;padding-top:1em;border-top:1px solid var(--line)}
+h3{font-size:1.2rem;margin-top:1.8em}p{margin:1em 0}strong{color:#fff}a{color:#ffab8d}blockquote{margin:1.4em 0;padding:.15em 0 .15em 1.2em;border-left:4px solid var(--accent);color:#ddd}
+pre{background:var(--code);padding:18px;border:1px solid #2b2b2b;border-radius:10px;overflow:auto;line-height:1.45}code{font-family:Consolas,"Liberation Mono",monospace}
+table{width:100%;border-collapse:collapse;margin:1.4em 0;background:var(--panel);font-size:.96rem}th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}th{background:#202020}
+.note{border:1px solid var(--line);background:var(--panel);padding:16px 18px;border-radius:10px}.fix{border-left:4px solid #78c091}
+footer{border-top:1px solid var(--line);margin-top:4em;padding-top:1.5em;color:var(--muted);font-size:.92rem}
+@media(max-width:700px){main{padding:28px 15px 70px}table{display:block;overflow-x:auto;font-size:.9rem}pre{font-size:.84rem}}
+</style>
+</head>
+<body>
+<nav style="position:sticky;top:0;z-index:10;display:flex;justify-content:flex-end;gap:8px;padding:12px;background:linear-gradient(#0f0f0f 70%,transparent);">
+<a href="index.html" style="border:1px solid #5b514b;padding:8px 11px;border-radius:9px;text-decoration:none;font-weight:800;">← BUGHUNTED</a>
+</nav>
+<main>
+<header>
+<div class="eyebrow">ShiduLab · BugHunted Duranted · Manuale narrato</div>
+<h1>L'ORA FANTASMA DEL BLOCCO SCHERMO</h1>
+<p class="subtitle">Desktop giusto. Lock screen un'ora indietro. Da sempre. Una chiacchiera notturna diventa una caccia al bug, fra ipotesi sbagliate, registro, fuso orario e un campo vuoto che non avrebbe dovuto esserlo.</p>
+</header>
+
+<blockquote><strong>«Oh Scriba, c'ho sta cosa che il blocco schermo ha un'ora indietro. Solo il blocco schermo.»</strong></blockquote>
+
+<p>La radio intanto continuava a suonare sotto il blocco schermo. Quello era il bello. Il brutto era l'orologio: desktop corretto, lock screen a −1 ora.</p>
+
+<p>Prima tentazione: dare la colpa alla sincronizzazione, al server delle notizie, a Windows Spotlight, all'ora legale, a qualche folletto Microsoft in giacca e cravatta. Tutto plausibile. Quindi tutto da verificare.</p>
+
+<h2>Prima retina: il fuso</h2>
+
+<p>Partiamo dal cartello più semplice:</p>
+
+<pre>C:\Users\Josta&gt;tzutil /g
+W. Europe Standard Time</pre>
+
+<p>Il fuso è quello giusto. Italia, Europa occidentale, niente Pacifico infilato di nascosto nel BIOS.</p>
+
+<p>Quindi lanciamo la prima retina nel Registro:</p>
+
+<pre>reg query HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal</pre>
+
+<p>Risposta:</p>
+
+<pre>Errore: Impossibile trovare la chiave del Registro di sistema o il valore specificato.</pre>
+
+<p>Bene. Nessun evidente override del clock hardware in UTC. Primo pesciolino lasciato andare.</p>
+
+<h2>Seconda retina: ora legale</h2>
+
+<p>Altro comando:</p>
+
+<pre>reg query HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v DynamicDaylightTimeDisabled</pre>
+
+<p>Ed eccolo:</p>
+
+<pre>DynamicDaylightTimeDisabled    REG_DWORD    0x1</pre>
+
+<p>Qui Billy-Scriba parte allegro: «Ah! Ora legale disattivata, ecco l'ora mancante.»</p>
+
+<p>Josta lo prende per la collottola:</p>
+
+<blockquote><strong>«Ma era così anche prima del cambio ora, stava sempre un'ora indietro, Billy... :D»</strong></blockquote>
+
+<p>Giusto. Una spiegazione che funziona solo oggi non spiega un difetto presente da sempre. Ipotesi ridimensionata. Si riapre la scatola.</p>
+
+<h2>La farfalla che non dovrebbe essere vuota</h2>
+
+<p>A questo punto niente più pesca con la canna. Tiriamo su tutta la rete:</p>
+
+<pre>reg query HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation</pre>
+
+<p>Il dump restituisce:</p>
+
+<pre>Bias                          REG_DWORD    0xffffffc4
+DaylightBias                  REG_DWORD    0xffffffc4
+DaylightName                  REG_SZ       ora legale Europa occidentale
+DaylightStart                 REG_BINARY   00000300050002000000000000000000
+StandardBias                  REG_DWORD    0x0
+StandardName                  REG_SZ       ora solare Europa occidentale
+StandardStart                 REG_BINARY   00000A00050003000000000000000000
+TimeZoneKeyName               REG_SZ
+DynamicDaylightTimeDisabled   REG_DWORD    0x1
+ActiveTimeBias                REG_DWORD    0xffffff88</pre>
+
+<p>Ed è lì che compare la cosa interessante:</p>
+
+<pre>TimeZoneKeyName    REG_SZ</pre>
+
+<p><strong>Vuoto.</strong></p>
+
+<p>Non un numero sbagliato. Non un'ora palesemente errata. Un nome assente.</p>
+
+<p>Nel frattempo <code>tzutil /g</code> continuava a rispondere <code>W. Europe Standard Time</code>. Quindi Windows, da una parte, sapeva quale fuso stava usando; dall'altra, nel blocco persistente del Registro, il campo che normalmente lo nomina risultava vuoto.</p>
+
+<p>È il genere di dettaglio che non urla. Fa solo una piccola increspatura sulla superficie. Ma se stai guardando avanti sul nastro, quella increspatura è la farfalla.</p>
+
+<h2>I numeri non erano il colpevole</h2>
+
+<p><code>ActiveTimeBias = 0xffffff88</code> corrisponde a −120 minuti. Tradotto nel meccanismo di Windows, la sessione stava lavorando con l'offset coerente con UTC+2.</p>
+
+<p>Questo spiega perché il desktop mostrava l'ora giusta. Quindi non avevamo semplicemente un sistema intero spostato di un'ora.</p>
+
+<p>Avevamo invece due comportamenti diversi nello stesso Windows:</p>
+
+<table>
+<thead><tr><th>Parte</th><th>Stato</th></tr></thead>
+<tbody>
+<tr><td>Sessione desktop</td><td>ora corretta</td></tr>
+<tr><td>Lock screen</td><td>−1 ora</td></tr>
+<tr><td><code>tzutil /g</code></td><td>W. Europe Standard Time</td></tr>
+<tr><td><code>TimeZoneKeyName</code></td><td>vuoto</td></tr>
+</tbody>
+</table>
+
+<p>Non serve ancora inventare quale DLL, servizio o componente stesse leggendo cosa. Basta tenere separati <strong>fatto</strong> e <strong>ipotesi</strong>.</p>
+
+<h2>Il fix più piccolo possibile</h2>
+
+<p>Invece di modificare a mano bias, minuti, chiavi e geroglifici binari, si chiede a Windows di riscrivere <em>la stessa timezone che già dichiara di usare</em>:</p>
+
+<pre>tzutil /s "W. Europe Standard Time"</pre>
+
+<p>Nessun cambio di paese. Nessun trucco. Nessun riavvio della civiltà occidentale.</p>
+
+<p>Solo: «Windows, riscriviti bene quello che dici già di essere.»</p>
+
+<div class="note fix">
+<strong>Risultato immediato:</strong><br>
+<code>TimeZoneKeyName</code> torna valorizzato correttamente.<br>
+Il blocco schermo mostra finalmente <strong>l'ora giusta</strong>.
+</div>
+
+<h2>BugHunted</h2>
+
+<p>La catena osservata è semplice:</p>
+
+<pre>PRIMA
+desktop corretto
+lock screen -1h
+tzutil /g = W. Europe Standard Time
+TimeZoneKeyName = vuoto
+
+AZIONE
+tzutil /s "W. Europe Standard Time"
+
+DOPO
+TimeZoneKeyName = W. Europe Standard Time
+lock screen = ora corretta</pre>
+
+<p>Questo non dimostra da solo l'implementazione interna del bug. Dimostra però una relazione operativa molto forte: <strong>la riscrittura canonica del fuso ricostruisce uno stato coerente e il difetto sparisce.</strong></p>
+
+<h2>Manuale, ma narrato</h2>
+
+<p>Il punto non è soltanto il comando finale. È il percorso.</p>
+
+<p>Prima una spiegazione troppo facile. Poi il dettaglio storico che la smentisce. Poi un controllo più largo. Poi il campo vuoto. Poi il fix minimo. Poi il riscontro visivo.</p>
+
+<pre>vedo
+→ ipotizzo
+→ verifico
+→ sbaglio
+→ correggo
+→ allargo la retina
+→ trovo l'incongruenza
+→ applico il minimo intervento
+→ verifico di nuovo
+→ FIXATO</pre>
+
+<p>Fra lenti, farfalle, retine e pesciolini, il manuale resta tecnico. Solo che non finge che il tecnico sappia già dall'inizio dove sta andando.</p>
+
+<h2>Interessanted x TEDx</h2>
+
+<p>Perché può diventare materiale da palco? Perché in piccolo racconta una cosa più grande: <strong>la differenza tra avere dati e vedere una relazione</strong>.</p>
+
+<p>Un sistema può mostrare contemporaneamente informazioni apparentemente coerenti e uno stato interno incompleto. La soluzione non arriva sempre dal valore più vistoso. A volte arriva da ciò che <strong>manca</strong>.</p>
+
+<p>E soprattutto: correggere un'ipotesi davanti all'evidenza non indebolisce il ragionamento. È il ragionamento che funziona.</p>
+
+<blockquote><strong>BugHunted Duranted:</strong> non soltanto trovare il bug. Lasciare visibile il sentiero con cui ci sei arrivato.</blockquote>
+
+<footer>BUGHUNTED DURANTED · ShiduLab · VivoVedoCronaca tecnica · Manuale narrato</footer>
+</main>
+</body>
+</html>
